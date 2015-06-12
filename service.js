@@ -38,6 +38,7 @@ var service = {
 			ip: ip,
 			host: hostName,
 			port:opations.port,
+			index:opations.indexHTML
 		};
 
 		fs.writeFile("./DEMO/ip.json", JSON.stringify(json), function(err) {

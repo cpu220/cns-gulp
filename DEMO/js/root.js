@@ -30,7 +30,7 @@ $(document).ready(function() {
 				str = "";
 			for (var i in json.ip) {
 				var num=(parseInt(i) + 1),
-					url="http://" + json.ip[i] + ":" + json.port + "/index.html";
+					url="http://" + json.ip[i] + ":" + json.port + "/"+json.index;
 				str += "<td><a data-id='a"+num+"' href='"+url+"' >地址" + num + " [" + json.ip[i] + " ]</a></td>"
 				this.setQrCode({
 					id:$("#qrcode div").eq(i)[0],
