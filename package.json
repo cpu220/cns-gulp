@@ -1,0 +1,15 @@
+{
+	"indexHTML":"index.html",
+	"rootHTML":"root.html",
+	"index":false,
+	"root":"DEMO",
+	"version": "0.0.1", 
+	"host":true, 
+	"sync":true, 
+	"port":8080, 
+	"resourcesLog":true, 
+	"autoOpenBrowser":true,
+	"resetLog":true, 
+	"ipType":"IPv4"
+
+}
