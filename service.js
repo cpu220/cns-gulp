@@ -1,51 +1,53 @@
-
-
 var http = require('http');
 var url = require('url');
 var fs = require('fs');
+var util = require('util');
+
 var fileType = require('./fileType').types;
 var path = require('path');
-var child_process = require("child_process"); 
+var child_process = require("child_process");
 var os = require('os');
 
-var opations=JSON.parse(fs.readFileSync('package.json'));
+var net = require('net');
+
+
+var opations = JSON.parse(fs.readFileSync('config.json'));
 
 
 
-var service = {
+var CNServer = {
 	init: function(port) {
 		this.creatService(port);
-		opations.autoOpenBrowser?(this.openWindow(port) ):"";
-		console.log("目前服务器版本为v1.0,如有问题请自行解决");
-		console.log("Server runing at port: " + port + "."); 
+		opations.autoOpenBrowser ? (this.openWindow(port)) : "";
+
 	},
 	getHostIP: function() {
 		var IPv4, hostName;
 		hostName = os.hostname();
-		var ifaces = os.networkInterfaces(); 
-		var ip=[];
-		for(var x in ifaces){
+		var ifaces = os.networkInterfaces();
+		var ip = [];
+		for (var x in ifaces) {
 
-			for(var  y in ifaces[x]){
-				var object=ifaces[x][y];
-				if(  object["family"] === opations.ipType){
+			for (var y in ifaces[x]) {
+				var object = ifaces[x][y];
+				if (object["family"] === opations.ipType) {
 					ip.push(object.address);
 				}
 			}
-			  
+
 		}
-		var json={
+		var json = {
 			ip: ip,
 			host: hostName,
-			port:opations.port,
-			index:opations.indexHTML
+			port: opations.port,
+			index: opations.indexHTML
 		};
 
 		fs.writeFile("./DEMO/ip.json", JSON.stringify(json), function(err) {
-				if (err) {
-					throw err;
-				}
-			});
+			if (err) {
+				throw err;
+			}
+		});
 		return json
 	},
 	openWindow: function(port) {
@@ -65,11 +67,11 @@ var service = {
 
 		}
 		var pc = _this.getHostIP();
-		
-		var location = "http://" + pc.ip[0] + ":" + port + "/"+(opations.index?opations.indexHTML:opations.rootHTML);
+
+		var location = "http://" + pc.ip[0] + ":" + port + "/" + (opations.index ? opations.indexHTML : opations.rootHTML);
 		child_process.exec(cmd + ' "' + location + '"');
 
-		user = "[" + pc.host + "] 访问 ["+ (new Date()) + "] \n";
+		user = "[" + pc.host + "] 访问 [" + (new Date()) + "] \n";
 
 		_this.appendLog(user);
 
@@ -121,44 +123,62 @@ var service = {
 		var message = "[" + (new Date()) + "]" + path.realPath + " [ 加载成功！] \n";
 		return message;
 	},
+	page404: function(req, res, path) {
+		res.writeHead(404, {
+			'Content-Type': 'text/plain'
+		});
+		res.write("<!doctype html> \n");
+		res.write("<title>404 not found</title> \n");
+		res.write("<h1>not found</h1> \n");
+		res.write("<p>not found " + path + "</p>");
+		res.end();
+
+	},
+	page500: function(req, res, err) {
+		res.writeHead(500, {
+			'Content-Type': 'text/plain'
+		});
+		res.write("<!doctype html> \n");
+		res.write("<title>Internal Server error</title> \n");
+		res.write("<h1>Internal Server error</h1> \n");
+		res.write("<p>n" + util.inspect(err) + "</p>");
+		res.end();
+	}, 
 	creatService: function(port) {
 		var _this = this;
 		_this.resetLog();
-		http.createServer(function(request, response) {
+		var server = http.createServer(function(req, res) {
 
-			var path = _this.getPath(request, response);
+			var path = _this.getPath(req, res);
 			fs.exists(path.realPath, function(exists) {
 				if (!exists) {
-					response.writeHead(404, {
-						'Content-Type': 'text/plain'
-					});
-
-					response.write("This request URL " + path.pathname + " was not found on this server.");
-					response.end();
+					_this.page404(req,res,path.pathname);
+					 
 				} else {
 
 					fs.readFile(path.realPath, "binary", function(err, file) {
 						if (err) {
-							response.writeHead(500, {
-								'Content-Type': 'text/plain'
-							});
-							response.end(err);
+							 _this.page500(req,res,err)
 						} else {
 							var contentType = fileType[path.ext] || "text/plain";
-							response.writeHead(200, {
+							res.writeHead(200, {
 								'Content-Type': contentType
 							});
-							response.write(file, "binary");
-							response.end();
-							opations.resourcesLog?(  _this.setLog(request, response) ):"";
+							res.write(file, "binary");
+							res.end();
+							opations.resourcesLog ? (_this.setLog(req, res)) : "";
 
 						}
 					});
+					 
 				}
 			});
 
-		}).listen(port);
+		}).listen(port, function() {
+			console.log("目前服务器版本为v1.0,如有问题请自行解决");
+			console.log("Server runing at port: " + port);
+		}); 
 
 	}
 };
-service.init(opations.port);
+CNServer.init(opations.port);
