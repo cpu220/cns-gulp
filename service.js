@@ -143,7 +143,7 @@ var CNServer = {
 		res.write("<h1>Internal Server error</h1> \n");
 		res.write("<p>n" + util.inspect(err) + "</p>");
 		res.end();
-	}, 
+	},
 	creatService: function(port) {
 		var _this = this;
 		_this.resetLog();
@@ -152,13 +152,13 @@ var CNServer = {
 			var path = _this.getPath(req, res);
 			fs.exists(path.realPath, function(exists) {
 				if (!exists) {
-					_this.page404(req,res,path.pathname);
-					 
+					_this.page404(req, res, path.pathname);
+
 				} else {
 
 					fs.readFile(path.realPath, "binary", function(err, file) {
 						if (err) {
-							 _this.page500(req,res,err)
+							_this.page500(req, res, err)
 						} else {
 							var contentType = fileType[path.ext] || "text/plain";
 							res.writeHead(200, {
@@ -170,14 +170,23 @@ var CNServer = {
 
 						}
 					});
-					 
+
 				}
 			});
+			var a = http.Server();
+
+			a.on('request', function(req, res) {
+				req.on('data', function(chunk) {
+					 
+					res.write(chunk)  
+					 
+				})
+			})
 
 		}).listen(port, function() {
 			console.log("目前服务器版本为v1.0,如有问题请自行解决");
 			console.log("Server runing at port: " + port);
-		}); 
+		});
 
 	}
 };
