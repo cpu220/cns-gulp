@@ -33,8 +33,7 @@ $(document).ready(function() {
 				var num=(parseInt(i) + 1),
 					url= "http://"+json.ip[i] + ":" + json.port + "/"+json.index;
 				strURL += "<td><a data-id='a"+num+"' href='"+url+"' >地址" + num + " [" + json.ip[i] + " ]</a></td>";
-				setQrCode+="<td><div id='a"+num+"' data-url='"+url+"'></div></td>";
-				 
+				setQrCode+="<td><div id='a"+num+"' data-url='"+url+"'></div></td>"; 
 			}
 			$("#qrcode").append(setQrCode);
 			$("#address").append(strURL);
@@ -42,7 +41,7 @@ $(document).ready(function() {
 			for(var i=0;i<$("#qrcode td").length;i++){
 				_this.setQrCode({
 					id:$("#qrcode div").eq(i)[0],
-					url:url
+					url:$("#qrcode div").eq(i).data("url")
 				});
 			}
 		},
