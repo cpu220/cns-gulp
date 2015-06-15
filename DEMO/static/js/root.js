@@ -47,8 +47,14 @@ $(document).ready(function() {
 					id: $(this)[0],
 					url: $(this).data("url")
 				});
+			});
+			 this.onQrcodeClick();
+		},
+		onQrcodeClick:function(){
+			$(".qrcodeBox").on("click",function(){
+				var url=$(this).find("a").attr("href");
+				location.href=url;
 			})
-			 
 		},
 		/* 生成二维码
 		 * {object Object} 二维码对象的信息
