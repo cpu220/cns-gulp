@@ -32,7 +32,7 @@ $(document).ready(function() {
 			for (var i in json.ip) {
 				var num = (parseInt(i) + 1),
 					url = "http://" + json.ip[i] + ":" + json.port + "/" + json.index;
-					console.log(str);
+					 
 				str += "<li data-num='" + num + "'>" +
 					"<div class='qrcodeBox'  >" +
 					"<div id='qrcode" + num + "' class='qrcodeIMG' data-url='"+url+"' ></div>" +
