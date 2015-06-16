@@ -12,7 +12,8 @@ $(document).ready(function() {
 				paginationClickable: true,
 				speed:1000,
 				mousewheelControl: true,
-				direction: 'vertical'
+				direction: 'vertical',
+
 			});
 		}
 
