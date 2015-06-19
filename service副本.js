@@ -173,23 +173,20 @@ var CNServer = {
 
 				}
 			});
+			var a = http.Server();
 
-
+			a.on('request', function(req, res) {
+				req.on('data', function(chunk) {
+					 
+					res.write(chunk)  
+					 
+				})
+			})
 
 		}).listen(port, function() {
 			console.log("目前服务器版本为v1.0,如有问题请自行解决");
 			console.log("Server runing at port: " + port);
 		});
-
-		// var client = net.connect({
-		// 	port: 8080
-		// }, function() { // connect监听器
-		// 	console.log("客户端已连接");
-		// 	client.write('Hello,Baby !\r\n');
-		// });
-		// client.on("end", function(){
-		//   console.log("客户端断开连接") ;
-		// }) ;
 
 	}
 };
