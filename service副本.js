@@ -11,14 +11,16 @@ var os = require('os');
 var net = require('net');
 
 
-var opations = JSON.parse(fs.readFileSync('config.json'));
+// var opations = JSON.parse(fs.readFileSync('config.json'));
 
 
 
 var CNServer = {
-	init: function(port) {
+	opations:JSON.parse(fs.readFileSync('config.json'))
+	init: function() {
+		var port=_this.opations.port || 8080;
 		this.creatService(port);
-		opations.autoOpenBrowser ? (this.openWindow(port)) : "";
+		this.opations.autoOpenBrowser ? (this.openWindow(port)) : "";
 
 	},
 	getHostIP: function() {
@@ -30,7 +32,7 @@ var CNServer = {
 
 			for (var y in ifaces[x]) {
 				var object = ifaces[x][y];
-				if (object["family"] === opations.ipType) {
+				if (object["family"] === this.opations.ipType) {
 					ip.push(object.address);
 				}
 			}
@@ -39,8 +41,8 @@ var CNServer = {
 		var json = {
 			ip: ip,
 			host: hostName,
-			port: opations.port,
-			index: opations.indexHTML
+			port: this.opations.port,
+			index: this.opations.indexHTML
 		};
 
 		fs.writeFile("./DEMO/ip.json", JSON.stringify(json), function(err) {
@@ -68,7 +70,7 @@ var CNServer = {
 		}
 		var pc = _this.getHostIP();
 
-		var location = "http://" + pc.ip[0] + ":" + port + "/" + (opations.index ? opations.indexHTML : opations.rootHTML);
+		var location = "http://" + pc.ip[0] + ":" + port + "/" + (this.opations.index ? this.opations.indexHTML : this.opations.rootHTML);
 		child_process.exec(cmd + ' "' + location + '"');
 
 		user = "[" + pc.host + "] 访问 [" + (new Date()) + "] \n";
@@ -78,7 +80,7 @@ var CNServer = {
 	},
 	getPath: function(request, response) {
 		var pathname = url.parse(request.url).pathname;
-		var realPath = path.join(opations.root, pathname);
+		var realPath = path.join(this.opations.root, pathname);
 
 		var ext = path.extname(realPath);
 		ext = ext ? ext.slice(1) : 'unknown';
@@ -91,7 +93,7 @@ var CNServer = {
 	},
 	resetLog: function() {
 		var _this = this;
-		if (opations.resetLog) {
+		if (_this.opations.resetLog) {
 			fs.writeFile("log.txt", "", function(err) {
 				if (err) {
 					throw err;
@@ -166,7 +168,7 @@ var CNServer = {
 							});
 							res.write(file, "binary");
 							res.end();
-							opations.resourcesLog ? (_this.setLog(req, res)) : "";
+							_this.opations.resourcesLog ? (_this.setLog(req, res)) : "";
 
 						}
 					});
@@ -190,4 +192,4 @@ var CNServer = {
 
 	}
 };
-CNServer.init(opations.port);
+CNServer.init();

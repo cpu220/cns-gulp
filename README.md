@@ -3,7 +3,7 @@
 
 基于node的service，用于前端h5快速开发，调试用。目前为第一版
 
-##package.json
+##config.json
 
 * indexHTML
 	* 扫码后的默认页面，如有需求，自行更换

@@ -1,82 +1,181 @@
 html, body {
-        position: relative;
-        height: 100%;
-    }
-    body {
-        background: #eee;
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        color:#1a1a11a;
-        margin: 0;
-        padding: 0;
-    }
-    .swiper-container {
-        width: 100%;
-        height: 100%;
-    }
-    .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
-        /*border:solid 1px #808080;*/
-        /* Center slide text vertically */
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
-    }
+  position: relative;
+  height: 100%;
+}
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #1a1a1a;
+  margin: 0;
+  padding: 0;
+}
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;        /*border:solid 1px #808080;*/
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
 
 /*start common*/
-
-.fn-hide{display: none;}
-
-.fn-left{float:left; }
-.fn-right{float:right; }
-.ft-left{text-align: left; }
-.ft-right{text-align: right; }
-
-.ft-12{font-size:12px; }
-.ft-14{font-size:14px; }
-.ft-16{font-size:16px; } 
-
-a{
-    color:#0ae;
-    cursor: pointer;
-    text-decoration: none;
+.fn-hide {
+  display: none;
 }
-ft-error{color:#f4333c;!important; }
-ft-money{color:#ff8208;}
-
+.fn-clear{
+  clear:both;
+}
+.fn-left {
+  float: left;
+}
+.fn-right {
+  float: right;
+}
+.ft-left {
+  text-align: left;
+}
+.ft-right {
+  text-align: right;
+}
+.ft-baseline {
+  vertical-align: baseline;
+}
+.ft-bottom {
+  vertical-align: bottom;
+}
+.ft-top {
+  vertical-align: top;
+}
+.ft-12 {
+  font-size: 12px;
+}
+.ft-14 {
+  font-size: 14px;
+}
+.ft-16 {
+  font-size: 16px;
+}
+.ft-18 {
+  font-size: 18px;
+}
+.ft-20 {
+  font-size: 20px;
+}
+a {
+  color: #0ae;
+  cursor: pointer;
+  text-decoration: none;
+}
+.ft-error {
+  color: #f4333c;
+  !important;
+}
+.ft-money {
+  color: #ff8208;
+}
+.ft-weaken {
+  color: #a6a6a6;
+}
+.ft-green {
+  color: #00a980;
+}
+.ft-black {
+  color: #333333;
+}
+.ft-white {
+  color: #fff;
+}
+.ft-blue, .ft-link {
+  color: #00aaee;
+}
+.ft-bar {
+  color: #ccc;
+  padding: 0 7px 0 6px;
+}
+.ft-nowrap {
+  white-space: nowrap;
+  word-break: keep-all;
+}
+.ft-ellipsis {
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: normal;
+  word-wrap: normal;
+}
+.fn-pt5 {
+  padding-top: 5px;
+}
+.fn-pr5 {
+  padding-right: 5px;
+}
+.fn-pb5 {
+  padding-bottom: 5px;
+}
+.fn-pl5 {
+  padding-left: 5px;
+}
+.fn-pt10 {
+  padding-top: 10px;
+}
+.fn-pr10 {
+  padding-right: 10px;
+}
+.fn-pb10 {
+  padding-bottom: 10px;
+}
+.fn-pl10 {
+  padding-left: 10px;
+}
+.fn-pt15 {
+  padding-top: 15;
+}
+.fn-pr15 {
+  padding-right: 15px;
+}
+.fn-pb15 {
+  padding-bottom: 15px;
+}
+.fn-pl15 {
+  padding-left: 15px;
+}
 
 /*end common*/
-
-@font-face {font-family: "iconfont";
+@font-face {
+  font-family: "iconfont";
   src: url('iconfont.eot'); /* IE9*/
   src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
   url('iconfont.woff') format('woff'), /* chrome、firefox */
   url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
   url('iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
-
 .iconfont {
-  font-family:"iconfont" !important;
-  font-size:16px;
-  font-style:normal;
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
-.icon-bangzhu:before { content: "\e64a"; }
+
+/*.icon-bangzhu:before { content: "\e64a"; }
 .icon-caidan:before { content: "\e628"; }
 .icon-caidan1:before { content: "\e61f"; }
-.icon-ui2-icon-email:before { content: "\e602"; }
-
-    
+.icon-ui2-icon-email:before { content: "\e602"; }*/

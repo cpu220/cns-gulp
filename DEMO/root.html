@@ -8,104 +8,14 @@
     <meta name="keywords" content="">
 
   <link rel="stylesheet" href="./static/css/common.css" />
+  <link rel="stylesheet" href="./static/css/root.css" />
 
   <script src="./static/js/jquery-1.9.1.js"></script>  
   <script src="./static/js/qrcode.js"></script>  
 
   <script src="./static/js/root.js"></script>  
  
-  <style>
-  .nav-head{
-    background: #1a1a1a; 
-    height:50px;
-    color:#fff;
-    padding:0 0 0 15px;
-  } 
-  .nav-head .nav-head-title{
-    line-height: 50px;
-  }
-  .nav-head .nav-head-title .title-main{
-    font-size:26px;
-  }
-  .nav-head .nav-head-title .title-sub{
-    font-size:14px;
-    padding-left: 5px;
-  }
-
-  .nav-head .head-tools{
-      width: 50px;
-      height: 50px;
-      
-      position: absolute;
-      right: 0px;
-      top: 0px;
-       text-align: center;
-       cursor: pointer;
-  }
-  .nav-head .head-tools .tools-list{ 
-       -webkit-animation: "act2" 4s linear infinite normal ;  
-  }
-  .nav-head .head-tools .tools-list:hover {  
-       -webkit-animation: none ; 
-  }
-  .nav-head .head-tools .t-help{
-    font-size:26px;
-    line-height: 50px;    
-
-  }
-  .main{padding:30px;}
-  .main ul{list-style: none;padding:0px;margin:0px;}
-  .main ul li{display: inline-block;width:170px;height:210px;text-align: center;margin-right:30px;
-    /*border-style:dashed;*/
-    border-style:solid;
-    border-width:1px;
-    border-color:#0ae;
-  }
-  .main ul li:hover {
-       -webkit-animation: "act1" 0.5s linear ;
-  }
-  .main ul li .qrcodeIMG{padding: 15px 15px 15px 10px;}
-
-  .nav-foot{
-    width:100%;
-    height:50px;
-    font-size:14px;
-    background: #1a1a1a;
-    color:#fff;
-    position: fixed;
-    bottom:0px;
-    padding:10px 15px 10px 15px;
-
-  }
-  .nav-foot .title{ font-size:16px; }
-  .nav-foot a{
-    padding-left:10px;
-  }
-   @-webkit-keyframes "act1" {
-            0%{
-                -webkit-transform:scale(1)
-            }
-            
-            50% {
-                 -webkit-transform:scale(1.1)
-            }
-            100% {
-                 -webkit-transform:scale(1)
-            }
-        }
-
-     @-webkit-keyframes "act2" {
-            0%{
-                 -webkit-transform:  rotateY(0deg);
-            } 
-            100% {
-                 -webkit-transform:  rotateY(360deg); 
-            }
-        }
-  }
-  }
-           
-  </style>
+   
 
  
     <title>访问目录</title>
@@ -117,12 +27,25 @@
   <div class="nav-head">
     <div class="nav-head-title">
       <span class="title-main">CNS</span>
-      <span class="title-sub fn-14">简易node服务器,用于h5开发，目前待完善,如有需求，请<a>@作者</a></span>
+      <span class="title-sub fn-14">简易node服务器,用于h5开发，目前待完善,如有需求，请<a class="fn-pl5">@作者</a></span>
     </div>
     <div class="head-tools">
-      <div class="tools-list">
-         <i  class="t-help iconfont">&#xe64a;</i>
+      <div class="tools-content">
+        <div class="tools-list J-help">
+          <i  class="t-help iconfont">&#xe64a;</i> 
+        </div>
       </div>
+        
+     
+      
+      <div class="help-content J-help-menu" >
+          <ul class="ft-left ">
+            <li><a>API</a></li>
+            <li><a>DEMO</a></li>
+            <li><a>Document</a></li> 
+          </ul> 
+      </div>
+
     </div>
      
   </div>
