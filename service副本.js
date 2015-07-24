@@ -7,17 +7,13 @@ var fileType = require('./fileType').types;
 var path = require('path');
 var child_process = require("child_process");
 var os = require('os');
-
-var net = require('net');
-
-
-// var opations = JSON.parse(fs.readFileSync('config.json'));
-
+  
 
 
 var CNServer = {
-	opations:JSON.parse(fs.readFileSync('config.json'))
+	opations:JSON.parse(fs.readFileSync('config.json')),
 	init: function() {
+		var _this=this;
 		var port=_this.opations.port || 8080;
 		this.creatService(port);
 		this.opations.autoOpenBrowser ? (this.openWindow(port)) : "";

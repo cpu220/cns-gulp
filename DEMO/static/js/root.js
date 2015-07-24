@@ -49,6 +49,10 @@ $(document).ready(function() {
 				});
 			});
 			 this.onQrcodeClick();
+			 /*
+			 	ToDo
+			 	这里需要扩展下菊花
+			 */
 		},
 		onQrcodeClick:function(){
 			$(".qrcodeBox").on("click",function(){

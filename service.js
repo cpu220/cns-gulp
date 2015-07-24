@@ -7,12 +7,7 @@ var fileType = require('./fileType').types;
 var path = require('path');
 var child_process = require("child_process");
 var os = require('os');
-
-var net = require('net');
-
-
-// var opations = JSON.parse(fs.readFileSync('config.json'));
-
+  
 
 
 var CNServer = {
@@ -34,7 +29,7 @@ var CNServer = {
 			for (var y in ifaces[x]) {
 				var object = ifaces[x][y];
 				if (object["family"] === this.opations.ipType) {
-					ip.push(object.address);
+					ip.push(object.address); 
 				}
 			}
 
@@ -42,6 +37,8 @@ var CNServer = {
 		var json = {
 			ip: ip,
 			host: hostName,
+			system:os.type(),
+			release:os.release(),
 			port: this.opations.port,
 			index: this.opations.indexHTML
 		};
@@ -74,7 +71,7 @@ var CNServer = {
 		var location = "http://" + pc.ip[0] + ":" + port + "/" + (this.opations.index ? this.opations.indexHTML : this.opations.rootHTML);
 		child_process.exec(cmd + ' "' + location + '"');
 
-		user = "[" + pc.host + "] 访问 [" + (new Date()) + "] \n";
+		user = "----- [" + pc.host + "]["+ pc.system+"]["+pc.release+"] [" + _this.formatDate(new Date()) + "]访问 ----\n";
 
 		_this.appendLog(user);
 
@@ -106,9 +103,9 @@ var CNServer = {
 		}
 
 	},
-	setLog: function(request, response) {
+	setLog: function(req, res) {
 		var _this = this,
-			resources = _this.setLoadResources(request, response);
+			resources = _this.setLoadResources(req, res);
 		var message = resources;
 
 		_this.appendLog(message);
@@ -120,19 +117,34 @@ var CNServer = {
 			}
 		});
 	},
+	//读取资源
 	setLoadResources: function(request, response) {
 		var _this = this,
 			path = _this.getPath(request, response);
-		var message = "[" + (new Date()) + "]" + path.realPath + " [ 加载成功！] \n";
+		var message = path.realPath + "---------- [" + ( _this.formatDate(new Date() ) ) + "]  \n";
 		return message;
+	},
+	//时间格式format
+	formatDate:function(date){
+		var arr=["00","01","02","03","04","05","06","07","08","09"];
+		var D=date.getDate() ,
+			M=date.getMonth()+1,
+			Y=date.getFullYear(),
+			h=date.getHours(),
+			m=date.getMinutes(),
+			s=date.getSeconds();
+		 
+		return   Y+"-"+ (arr[M]||M) + "-"+(arr[D]||D)+" "+
+				 (arr[h]||h)+":"+(arr[m]||m)+":"+(arr[s]||s);
 	},
 	page404: function(req, res, path) {
 		res.writeHead(404, {
 			'Content-Type': 'text/plain'
 		});
+		var error=http.STATUS_CODES[404]
 		res.write("<!doctype html> \n");
-		res.write("<title>404 not found</title> \n");
-		res.write("<h1>not found</h1> \n");
+		res.write("<title>404 "+error+"</title> \n");
+		res.write("<h1>"+error+"</h1> \n");
 		res.write("<p>not found " + path + "</p>");
 		res.end();
 
@@ -141,15 +153,18 @@ var CNServer = {
 		res.writeHead(500, {
 			'Content-Type': 'text/plain'
 		});
+		var error=http.STATUS_CODES[500];
 		res.write("<!doctype html> \n");
-		res.write("<title>Internal Server error</title> \n");
-		res.write("<h1>Internal Server error</h1> \n");
-		res.write("<p>n" + util.inspect(err) + "</p>");
+		res.write("<title>500 "+error+"</title> \n");
+		res.write("<h1>"+error+"</h1> \n");
+		res.write("<p>" + util.inspect(err) + "</p>");
 		res.end();
 	},
 	creatService: function(port) {
 		var _this = this;
 		_this.resetLog();
+		 
+
 		var server = http.createServer(function(req, res) {
 
 			var path = _this.getPath(req, res);
@@ -176,20 +191,13 @@ var CNServer = {
 
 				}
 			});
-			var a = http.Server();
-
-			a.on('request', function(req, res) {
-				req.on('data', function(chunk) {
-					 
-					res.write(chunk)  
-					 
-				})
-			})
+			 
 
 		}).listen(port, function() {
 			console.log("目前服务器版本为v1.0,如有问题请自行解决");
 			console.log("Server runing at port: " + port);
-		});
+		}) ;
+
 
 	}
 };
