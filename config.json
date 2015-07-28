@@ -1,16 +1,27 @@
-
 {
-	"indexHTML":"htdocs/index.html",
-	"rootHTML":"root.html",
-	"index":false,
-	"root":"DEMO",
-	"version": "0.0.4", 
-	"hostName":true, 
-	"sync":true, 
-	"port":8080, 
-	"resourcesLog":true, 
-	"autoOpenBrowser":true,
-	"resetLog":true, 
-	"ipType":"IPv4"
+	"html": {
+		"indexHTML": "htdocs/index.html",
+		"rootHTML": "root.html",
+		"index": false,
+		"root": "DEMO"
+	},
+
+	"version": "0.0.4",
+	"service":{
+		"hostName": true,
+		"ipType": "IPv4",
+		"port": 8080
+	},
+	
+	"sync": true,
+	
+	"log": {
+		"resourcesLog": true,
+		"resetLog": true
+	},
+
+	"autoOpenBrowser": true
+
+	
 
 }
