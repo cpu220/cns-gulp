@@ -219,19 +219,11 @@ var CNServer = {
 
 		});
 		_this.server.listen(port, function() {
-			console.log("目前服务器版本为v1.0,如有问题请自行解决");
-			console.log("Server runing at port: " + port);
+			console.log("\nCurrent version: "+_this.opations.version);
+			console.log("Server runing at port: " + port +" \n");
 
 		});
-		_this.server.once("connection",function(socket){
-			 // console.log(socket.remoteAddress );
-			 // console.log(socket.address().address);
-			 // _this.appendLog(message);
-			 // _this.appendLog("["+socket.remoteAddress+"] \n"); 
-
-		});
- 
-
+		  
 
 	}
 };
