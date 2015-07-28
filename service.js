@@ -1,5 +1,5 @@
 var http = require('http');
-var net = require('net');
+// var net = require('net');
 
 var url = require('url');
 var fs = require('fs');
@@ -73,7 +73,7 @@ var CNServer = {
 		var location = "http://" + pc.ip[0] + ":" + port + "/" + (html.index ? html.indexHTML : html.rootHTML);
 		child_process.exec(cmd + ' "' + location + '"');
 
-		var user = "----- [" + pc.host + "][" + pc.system + "][" + pc.release + "] [" + _this.formatDate(new Date()) + "] ----\n";
+		var user = "----- [" + pc.host + "][" + pc.system + "][" + pc.release + "] [" + _this.formatDate(new Date()) + "] [服务器初始化结束] ----\n";
 
 		_this.appendLog(user);
 
@@ -120,15 +120,33 @@ var CNServer = {
 		});
 	},
 	//读取资源
-	setLoadResources: function(request, response) {
+	setLoadResources: function(req, res) {
 
 		var _this = this,
-			path = _this.getPath(request, response);
+			path = _this.getPath(req, res);
 		// var pc = _this.getHostIP();
-		 
-		 
-		var message = "["+os.platform()+"] "+ path.realPath + "---------- [" + (_this.formatDate(new Date())) + "]  \n";
+		var ip= req.socket.address(),
+			url=path.realPath,
+			message="";
+		if(_this.judgeFileType(url) ){
+			message +="-----------加载新连接------------- \n";
+		}
+		 message += "["+ip.address+"] ["+ url + "] ---------- [" + (_this.formatDate(new Date())) + "]  \n";
 		return message;
+	},
+	//判断访问资源文件类型
+	judgeFileType:function(url){
+		var reg=/\.[^\.]+$/;
+		var type=["html","html","php","asp","aspx"];
+		var file= reg.exec(url)[0];
+		var status=false;
+		for(var i=0;i<type.length;i++){
+			if(file.indexOf(type[0])  >=0 ){
+				status=true;
+			}
+		}
+		return status;
+		  
 	},
 	//时间格式format
 	formatDate: function(date) {
@@ -205,11 +223,12 @@ var CNServer = {
 			console.log("Server runing at port: " + port);
 
 		});
-		_this.server.on("connection",function(socket){
+		_this.server.once("connection",function(socket){
 			 // console.log(socket.remoteAddress );
 			 // console.log(socket.address().address);
 			 // _this.appendLog(message);
-			 _this.appendLog("["+socket.remoteAddress+"] \n");
+			 // _this.appendLog("["+socket.remoteAddress+"] \n"); 
+
 		});
  
 
