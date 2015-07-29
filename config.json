@@ -1,6 +1,6 @@
 {
 	"html": {
-		"indexHTML": "htdocs/index.html",
+		"indexHTML": "htdocs/card/index.html",
 		"rootHTML": "root.html",
 		"index": false,
 		"root": "DEMO"
@@ -19,7 +19,7 @@
 		"resourcesLog": true,
 		"resetLog": true
 	},
-
+	"doctypes":["html", "html", "php", "asp", "aspx"],
 	"autoOpenBrowser": true 
 
 }

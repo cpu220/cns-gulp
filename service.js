@@ -2,19 +2,19 @@ var http = require('http');
 // var net = require('net');
 
 var url = require('url');
-var fs = require('fs');
 var util = require('util');
 
 var fileType = require('./fileType').types;
 var path = require('path');
 var child_process = require("child_process");
 var os = require('os');
+var fs = require('fs');
 
-
+var common = require("./DEMO/static/js/common.js");
+var config=require("./config.json"); 
 
 var CNServer = {
-	opations: JSON.parse(fs.readFileSync('config.json')),
-
+	opations: config,
 	init: function() {
 		var _this = this;
 		var port = _this.opations.port || 8080;
@@ -44,12 +44,8 @@ var CNServer = {
 			port: this.opations.service.port,
 			index: this.opations.html.indexHTML
 		};
+		common.log.reset("./DEMO/ip.json", JSON.stringify(json)); 
 
-		fs.writeFile("./DEMO/ip.json", JSON.stringify(json), function(err) {
-			if (err) {
-				throw err;
-			}
-		});
 		return json
 	},
 	openWindow: function(port) {
@@ -94,11 +90,8 @@ var CNServer = {
 	resetLog: function() {
 		var _this = this;
 		if (_this.opations.log.resetLog) {
-			fs.writeFile("log.txt", "", function(err) {
-				if (err) {
-					throw err;
-				}
-			});
+			common.log.reset("log.txt", "");
+
 		} else {
 			var line = "--------------[服务器初始化结束]-------------- \n";
 			_this.appendLog(line);
@@ -109,15 +102,11 @@ var CNServer = {
 		var _this = this,
 			resources = _this.setLoadResources(req, res);
 		var message = resources;
-
 		_this.appendLog(message);
 	},
 	appendLog: function(message) {
-		fs.appendFile("log.txt", message, function(err) {
-			if (err) {
-				throw err;
-			}
-		});
+		common.log.set("log.txt", message);
+
 	},
 	//读取资源
 	setLoadResources: function(req, res) {
@@ -125,28 +114,29 @@ var CNServer = {
 		var _this = this,
 			path = _this.getPath(req, res);
 		// var pc = _this.getHostIP();
-		var ip= req.socket.address(),
-			url=path.realPath,
-			message="";
-		if(_this.judgeFileType(url) ){
-			message +="-----------加载新连接------------- \n";
+		var ip = req.socket.address(),
+			url = path.realPath,
+			message = "";
+		if (_this.judgeFileType(url)) {
+			message += "-----------加载新连接------------- \n";
 		}
-		 message += "["+ip.address+"] ["+ url + "] ---------- [" + (_this.formatDate(new Date())) + "]  \n";
+		message += "[" + ip.address + "] [" + url + "] ---------- [" + (_this.formatDate(new Date())) + "]  \n";
 		return message;
 	},
 	//判断访问资源文件类型
-	judgeFileType:function(url){
-		var reg=/\.[^\.]+$/;
-		var type=["html","html","php","asp","aspx"];
-		var file= reg.exec(url)[0];
-		var status=false;
-		for(var i=0;i<type.length;i++){
-			if(file.indexOf(type[0])  >=0 ){
-				status=true;
+	judgeFileType: function(url) {
+		var _this=this,
+			reg = /\.[^\.]+$/,
+		 	type = _this.opations.doctypes; 
+		var file = reg.exec(url)[0];
+		var status = false;
+		for (var i = 0; i < type.length; i++) {
+			if (file.indexOf(type[0]) >= 0) {
+				status = true;
 			}
 		}
 		return status;
-		  
+
 	},
 	//时间格式format
 	formatDate: function(date) {
@@ -207,6 +197,9 @@ var CNServer = {
 								'Content-Type': contentType
 							});
 							res.write(file, "binary");
+
+
+							_this.onData(req);
 							res.end();
 							_this.opations.log.resourcesLog ? (_this.setLog(req, res)) : "";
 
@@ -219,12 +212,23 @@ var CNServer = {
 
 		});
 		_this.server.listen(port, function() {
-			console.log("\nCurrent version: "+_this.opations.version);
-			console.log("Server runing at port: " + port +" \n");
-
+			console.log("\nCurrent version: " + _this.opations.version);
+			console.log("Server runing at port: " + port + " \n");
 		});
-		  
 
+
+	},
+	onData: function(req) {
+		var _this=this;
+		req.on("data", function(data) {
+			var d="--------[start 接受数据]--------\n"+data+"\n--------[end 接收数据]--------	\n";
+			_this.appendLog(d);
+			 
+		});
+		req.on("request", function(data) {
+			console.log(data);
+			 
+		});
 	}
 };
 CNServer.init();

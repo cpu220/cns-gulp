@@ -3,6 +3,20 @@ $(document).ready(function() {
 		init: function(fileName) {
 			this.doAjax(fileName);
 
+			$(".J-submit").on("click",function(){
+				jQuery.ajax({
+					type:"POST",
+					url:location.href,
+					data:"name=111",
+					success:function(data){
+						console.log(data);
+					},
+					error:function(err){
+						console.log(err);
+					}
+				})
+			})
+
 		},
 		/* 获取本地动态生成的ip地址，用于手机端即时访问
 		 * return {object Object} 将ip.json获取后直接用于使用
@@ -71,6 +85,7 @@ $(document).ready(function() {
 			});
 			qrcode.makeCode(object.url);
 		}
+
 	};
 	root.init("ip");
 
