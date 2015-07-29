@@ -75,4 +75,5 @@ function card(obj) {
 		canvas.addEventListener('mouseup', eventUp);
 		canvas.addEventListener('mousemove', eventMove);
 	});
+
 }
