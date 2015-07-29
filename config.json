@@ -4,17 +4,14 @@
 		"rootHTML": "root.html",
 		"index": false,
 		"root": "DEMO"
-	},
-
+	}, 
 	"version": "0.0.5",
 	"service":{
 		"hostName": true,
 		"ipType": "IPv4",
 		"port": 8080
-	},
-	
-	"sync": true,
-	
+	}, 
+	"sync": true, 
 	"log": {
 		"resourcesLog": true,
 		"resetLog": true

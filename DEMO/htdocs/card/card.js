@@ -22,7 +22,14 @@ function card(obj) {
 		var mousedown = false;
 
 		function layer(cover) {
-			cover.fillStyle = obj.cover || 'gray';
+			var reg = /^#/;
+			if (reg.test(obj.cover)) {
+				cover.fillStyle = obj.cover || 'gray';
+			} else {
+				var img = $("#" + obj.cover)[0];
+				var pat = cover.createPattern(img, "repeat");
+				cover.fillStyle = pat;
+			}
 			cover.fillRect(0, 0, w, h);
 		}
 
@@ -57,8 +64,6 @@ function card(obj) {
 		canvas.style.backgroundImage = 'url(' + img.src + ')';
 
 		cover = canvas.getContext('2d');
-		cover.fillStyle = 'transparent';
-		cover.fillRect(0, 0, w, h);
 		layer(cover);
 
 		cover.globalCompositeOperation = 'destination-out';
