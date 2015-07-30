@@ -1,22 +1,7 @@
 $(document).ready(function() {
 	var root = {
 		init: function(fileName) {
-			this.doAjax(fileName);
-
-			$(".J-submit").on("click",function(){
-				jQuery.ajax({
-					type:"POST",
-					url:location.href,
-					data:"name=111",
-					success:function(data){
-						console.log(data);
-					},
-					error:function(err){
-						console.log(err);
-					}
-				})
-			})
-
+			this.doAjax(fileName); 
 		},
 		/* 获取本地动态生成的ip地址，用于手机端即时访问
 		 * return {object Object} 将ip.json获取后直接用于使用
