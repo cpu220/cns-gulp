@@ -61,7 +61,7 @@ function card(obj) {
 
 		canvas.width = w;
 		canvas.height = h;
-		canvas.style.backgroundImage = 'url(' + img.src + ')';
+		canvas.style.backgroundImage = 'url(' + (obj.background? img.src:"") + ')';
 
 		cover = canvas.getContext('2d');
 		layer(cover);

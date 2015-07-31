@@ -4,19 +4,40 @@
 		"rootHTML": "root.html",
 		"index": false,
 		"root": "DEMO"
-	}, 
+	},
 	"version": "0.0.5",
-	"service":{
+	"service": {
 		"hostName": true,
 		"ipType": "IPv4",
 		"port": 8080
-	}, 
-	"sync": true, 
+	},
+	"sync": true,
 	"log": {
 		"resourcesLog": true,
 		"resetLog": true
 	},
-	"doctypes":["html", "html", "php", "asp", "aspx"],
-	"autoOpenBrowser": true 
+	"doctypes": ["html", "html", "php", "asp", "aspx"],
+	"suffix": {
+		"css": "text/css",
+		"gif": "image/gif",
+		"html": "text/html",
+		"ico": "image/x-icon",
+		"jpeg": "image/jpeg",
+		"jpg": "image/jpeg",
+		"js": "text/javascript",
+		"json": "application/json",
+		"pdf": "application/pdf",
+		"png": "image/png",
+		"svg": "image/svg+xml",
+		"swf": "application/x-shockwave-flash",
+		"tiff": "image/tiff",
+		"txt": "text/plain",
+		"wav": "audio/x-wav",
+		"wma": "audio/x-ms-wma",
+		"wmv": "video/x-ms-wmv",
+		"xml": "text/xml",
+		"woff":"font/woff"
+	},
+	"autoOpenBrowser": true
 
 }

@@ -1,17 +1,14 @@
 var http = require('http');
-// var net = require('net');
-
+var os = require('os');  
 var url = require('url');
 var util = require('util');
-
-var fileType = require('./fileType').types;
 var path = require('path');
 var child_process = require("child_process");
-var os = require('os');
-var fs = require('fs');
 
+/*文件类型*/
+// var fileType = require('./fileType').types; 
 var common = require("./DEMO/static/js/common.js");
-var config=require("./config.json"); 
+var config = require("./config.json");
 
 var CNServer = {
 	opations: config,
@@ -44,7 +41,7 @@ var CNServer = {
 			port: this.opations.service.port,
 			index: this.opations.html.indexHTML
 		};
-		common.log.reset("./DEMO/ip.json", JSON.stringify(json)); 
+		common.log.reset("./DEMO/ip.json", JSON.stringify(json));
 
 		return json
 	},
@@ -125,9 +122,9 @@ var CNServer = {
 	},
 	//判断访问资源文件类型
 	judgeFileType: function(url) {
-		var _this=this,
+		var _this = this,
 			reg = /\.[^\.]+$/,
-		 	type = _this.opations.doctypes; 
+			type = _this.opations.doctypes;
 		var file = reg.exec(url)[0];
 		var status = false;
 		for (var i = 0; i < type.length; i++) {
@@ -182,32 +179,39 @@ var CNServer = {
 		_this.server = http.createServer(function(req, res) {
 
 			var path = _this.getPath(req, res);
-			fs.exists(path.realPath, function(exists) {
-				if (!exists) {
-					_this.page404(req, res, path.pathname);
+			common.exists({
+				path: path.realPath,
+				success:function(){
+					common.readFile({
+							path: path.realPath,
+							encode: "binary",
+							callback: function(err, file) {
+								if (err) {
+									_this.page500(req, res, err)
+								} else { 
+									var contentType = _this.opations.suffix[path.ext] || "text/plain";
+									res.writeHead(200, {
+										'Content-Type': contentType
+									});
+									res.write(file, "binary");
 
-				} else {
 
-					fs.readFile(path.realPath, "binary", function(err, file) {
-						if (err) {
-							_this.page500(req, res, err)
-						} else {
-							var contentType = fileType[path.ext] || "text/plain";
-							res.writeHead(200, {
-								'Content-Type': contentType
-							});
-							res.write(file, "binary");
+									_this.onData(req);
+									res.end();
+									_this.opations.log.resourcesLog ? (_this.setLog(req, res)) : "";
 
-
-							_this.onData(req);
-							res.end();
-							_this.opations.log.resourcesLog ? (_this.setLog(req, res)) : "";
-
-						}
-					});
-
+								}
+							}
+						})
+				},
+				error:function(){
+					_this.page404(req, res, path.pathname); 
+				},
+				callback: function(exists) {
+					/*读取文件结束*/ 
 				}
 			});
+			 
 
 
 		});
@@ -219,16 +223,21 @@ var CNServer = {
 
 	},
 	onData: function(req) {
-		var _this=this;
+		var _this = this;
 		req.on("data", function(data) {
-			var d="--------[start 接受数据]--------\n"+data+"\n--------[end 接收数据]--------	\n";
+			var d = "--------[start 接受数据]--------\n" + data + "\n--------[end 接收数据]--------	\n";
 			_this.appendLog(d);
-			 
+
 		});
 		req.on("request", function(data) {
 			console.log(data);
-			 
+
 		});
 	}
 };
+
 CNServer.init();
+
+/*保留位*/
+
+
