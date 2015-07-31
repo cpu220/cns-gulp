@@ -1,6 +1,6 @@
 {
 	"html": {
-		"indexHTML": "htdocs/card/index.html",
+		"indexHTML": "htdocs/index.html",
 		"rootHTML": "root.html",
 		"index": false,
 		"root": "DEMO"
