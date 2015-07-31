@@ -5,9 +5,9 @@ var util = require('util');
 var path = require('path');
 var child_process = require("child_process");
 
-/*文件类型*/
-// var fileType = require('./fileType').types; 
+/*通用方法合集*/
 var common = require("./DEMO/static/js/common.js");
+/*配置参数*/
 var config = require("./config.json");
 
 var CNServer = {
@@ -19,6 +19,7 @@ var CNServer = {
 		this.opations.autoOpenBrowser ? (this.openWindow(port)) : "";
 
 	},
+	/*获取当前ip，根据协议生成对应的服务器可访问地址*/
 	getHostIP: function() {
 		var hostName = os.hostname();
 		var ifaces = os.networkInterfaces();
@@ -45,6 +46,7 @@ var CNServer = {
 
 		return json
 	},
+	/*根据操作系统打开浏览器*/
 	openWindow: function(port) {
 		var _this = this;
 		var html = this.opations.html;
@@ -71,6 +73,7 @@ var CNServer = {
 		_this.appendLog(user);
 
 	},
+	/*获取资源路径*/
 	getPath: function(request, response) {
 		var pathname = url.parse(request.url).pathname;
 		var realPath = path.join(this.opations.html.root, pathname);
@@ -84,6 +87,7 @@ var CNServer = {
 			ext: ext
 		}
 	},
+	/*重置日志*/
 	resetLog: function() {
 		var _this = this;
 		if (_this.opations.log.resetLog) {
@@ -95,12 +99,14 @@ var CNServer = {
 		}
 
 	},
+	/*启动设置日志head*/
 	setLog: function(req, res) {
 		var _this = this,
 			resources = _this.setLoadResources(req, res);
 		var message = resources;
 		_this.appendLog(message);
 	},
+	/*插入日志*/
 	appendLog: function(message) {
 		common.log.set("log.txt", message);
 
@@ -148,6 +154,7 @@ var CNServer = {
 		return Y + "-" + (arr[M] || M) + "-" + (arr[D] || D) + " " +
 			(arr[h] || h) + ":" + (arr[m] || m) + ":" + (arr[s] || s);
 	},
+	/*默认404页面*/
 	page404: function(req, res, path) {
 		res.writeHead(404, {
 			'Content-Type': 'text/plain'
@@ -160,6 +167,7 @@ var CNServer = {
 		res.end();
 
 	},
+	/*默认错误500页面*/
 	page500: function(req, res, err) {
 		res.writeHead(500, {
 			'Content-Type': 'text/plain'
@@ -171,6 +179,7 @@ var CNServer = {
 		res.write("<p>" + util.inspect(err) + "</p>");
 		res.end();
 	},
+	/*创建服务器*/
 	creatService: function(port) {
 		var _this = this;
 		_this.resetLog();
@@ -222,6 +231,7 @@ var CNServer = {
 
 
 	},
+	/*监听数据传输*/
 	onData: function(req) {
 		var _this = this;
 		req.on("data", function(data) {
