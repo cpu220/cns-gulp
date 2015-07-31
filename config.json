@@ -16,7 +16,7 @@
 		"resourcesLog": true,
 		"resetLog": true
 	},
-	"doctypes": ["html", "html", "php", "asp", "aspx"],
+	"doctypes": ["htm", "html", "php", "asp", "aspx"],
 	"suffix": {
 		"css": "text/css",
 		"gif": "image/gif",
