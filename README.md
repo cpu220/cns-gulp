@@ -36,5 +36,5 @@ v0.0.6
 ##log
 
 ##file
-		https://coding.net/u/belial/p/CNS/git
+	* https://coding.net/u/belial/p/CNS/git
 

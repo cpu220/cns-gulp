@@ -5,7 +5,7 @@
 		"index": false,
 		"root": "DEMO"
 	},
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"service": {
 		"hostName": true,
 		"ipType": "IPv4",

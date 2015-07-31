@@ -1,5 +1,5 @@
 var http = require('http');
-var os = require('os');  
+var os = require('os');
 var url = require('url');
 var util = require('util');
 var path = require('path');
@@ -190,39 +190,36 @@ var CNServer = {
 			var path = _this.getPath(req, res);
 			common.exists({
 				path: path.realPath,
-				success:function(){
+				success: function() {
 					common.readFile({
-							path: path.realPath,
-							encode: "binary",
-							callback: function(err, file) {
-								if (err) {
-									_this.page500(req, res, err)
-								} else { 
-									var contentType = _this.opations.suffix[path.ext] || "text/plain";
-									res.writeHead(200, {
-										'Content-Type': contentType
-									});
-									res.write(file, "binary");
+						path: path.realPath,
+						encode: "binary",
+						callback: function(err, file) {
+							if (err) {
+								_this.page500(req, res, err)
+							} else {
+								var contentType = _this.opations.suffix[path.ext] || "text/plain";
+								res.writeHead(200, {
+									'Content-Type': contentType
+								});
+								res.write(file, "binary");
 
 
-									_this.onData(req);
-									res.end();
-									_this.opations.log.resourcesLog ? (_this.setLog(req, res)) : "";
+								_this.onData(req);
+								res.end();
+								_this.opations.log.resourcesLog ? (_this.setLog(req, res)) : "";
 
-								}
 							}
-						})
+						}
+					})
 				},
-				error:function(){
-					_this.page404(req, res, path.pathname); 
+				error: function() {
+					_this.page404(req, res, path.pathname);
 				},
 				callback: function(exists) {
-					/*读取文件结束*/ 
+					/*读取文件结束*/
 				}
 			});
-			 
-
-
 		});
 		_this.server.listen(port, function() {
 			console.log("\nCurrent version: " + _this.opations.version);
@@ -246,8 +243,7 @@ var CNServer = {
 	}
 };
 
-CNServer.init();
-
+module.exports = CNServer; 
 /*保留位*/
 
 

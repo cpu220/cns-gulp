@@ -1,1 +1,1 @@
-node service.js
+node cns.js

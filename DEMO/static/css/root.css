@@ -6,16 +6,15 @@
 }
 .nav-head .nav-head-title {
 	line-height: 50px;
+	-webkit-transform-style: preserve-3d;
 }
 .nav-head .nav-head-title .title-main {
-	font-size: 26px;  
+	font-size: 26px;
 }
 .nav-head .nav-head-title .title-main:hover {
-	 
 	-webkit-animation: "shake" 0.2s   2 normal;
-
+	animation: "shake" 0.2s   2 normal;
 }
-
 .nav-head .nav-head-title .title-sub {
 	font-size: 14px;
 	padding-left: 5px;
@@ -93,11 +92,14 @@
 	height: 210px;
 	text-align: center;
 	margin-right: 30px;
-	border-style: dashed;    /*border-style:solid;*/
+	border-style: dashed;
 	border-width: 1px;
 	border-color: #0ae;
 }
 .main ul li:hover {
+	-webkit-box-shadow: 0 0 6px #828385;
+	-moz-box-shadow: 0 0 6px #828385;
+	box-shadow: 0 0 6px #828385;
 	-webkit-animation: "act1" 0.5s linear;
 }
 .main ul li .qrcodeIMG {
@@ -154,5 +156,4 @@
 	100% {
 		-webkit-transform: rotateZ(0deg);
 	}
-	 
 }
