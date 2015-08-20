@@ -5,6 +5,7 @@ $(document).ready(function() {
 		},
 		onEvent: function() {
 			this.initSwiper();
+			this.onClick();
 		},
 		initSwiper: function() {
 			var _this = this;
@@ -32,6 +33,21 @@ $(document).ready(function() {
 			console.log(elem_now);
 			console.log(elem_pre);
 			 
+		},
+		onClick:function(){
+			$(".J-submit").on("click",function(){
+				jQuery.ajax({
+					type:"POST",
+					url:location.href,
+					data:$("#form1").serialize(),
+					success:function(data){
+						console.log(data);
+					},
+					error:function(err){
+						console.log(err);
+					}
+				})
+			});
 		}
 
 	};

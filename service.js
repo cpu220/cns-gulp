@@ -3,6 +3,7 @@ var os = require('os');
 var url = require('url');
 var util = require('util');
 var path = require('path');
+var stream= require('stream');
 var child_process = require("child_process");
 
 /*通用方法合集*/
@@ -224,6 +225,7 @@ var CNServer = {
 		_this.server.listen(port, function() {
 			console.log("\nCurrent version: " + _this.opations.version);
 			console.log("Server runing at port: " + port + " \n");
+
 		});
 
 
@@ -236,6 +238,11 @@ var CNServer = {
 			_this.appendLog(d);
 
 		});
+		// var readable = getReadableStreamSomehow();
+
+		// readable.on('data', function(chunk) {
+		//   console.log('得到了 %d 字节的数据', chunk.length);
+		// })
 		req.on("request", function(data) {
 			console.log(data);
 

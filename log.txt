@@ -1,10 +1,63 @@
------ [cpwdeMacBook-Pro.local][Darwin][14.4.0] [2015-07-31 16:16:50] [服务器初始化结束] ----
+----- [cpwdeMacBook-Pro.local][Darwin][14.4.0] [2015-08-20 10:15:57] [服务器初始化结束] ----
 -----------加载新连接------------- 
-[::ffff:127.0.0.1] [DEMO/root.html] ---------- [2015-07-31 16:16:50]  
-[::ffff:127.0.0.1] [DEMO/static/css/common.css] ---------- [2015-07-31 16:16:50]  
-[::ffff:127.0.0.1] [DEMO/static/js/qrcode.js] ---------- [2015-07-31 16:16:50]  
-[::ffff:127.0.0.1] [DEMO/static/css/root.css] ---------- [2015-07-31 16:16:50]  
-[::ffff:127.0.0.1] [DEMO/static/js/root.js] ---------- [2015-07-31 16:16:50]  
-[::ffff:127.0.0.1] [DEMO/static/jquery/jquery-1.9.1.js] ---------- [2015-07-31 16:16:50]  
-[::ffff:127.0.0.1] [DEMO/ip.json] ---------- [2015-07-31 16:16:50]  
-[::ffff:127.0.0.1] [DEMO/static/css/iconfont.woff] ---------- [2015-07-31 16:16:50]  
+[::ffff:127.0.0.1] [DEMO/root.html] ---------- [2015-08-20 10:15:58]  
+[::ffff:127.0.0.1] [DEMO/static/css/common.css] ---------- [2015-08-20 10:15:58]  
+[::ffff:127.0.0.1] [DEMO/static/js/qrcode.js] ---------- [2015-08-20 10:15:58]  
+[::ffff:127.0.0.1] [DEMO/static/js/root.js] ---------- [2015-08-20 10:15:58]  
+[::ffff:127.0.0.1] [DEMO/static/css/root.css] ---------- [2015-08-20 10:15:58]  
+[::ffff:127.0.0.1] [DEMO/static/jquery/jquery-1.9.1.js] ---------- [2015-08-20 10:15:58]  
+[::ffff:127.0.0.1] [DEMO/ip.json] ---------- [2015-08-20 10:15:58]  
+[::ffff:127.0.0.1] [DEMO/static/css/iconfont.woff] ---------- [2015-08-20 10:15:58]  
+-----------加载新连接------------- 
+[::ffff:10.63.42.15] [DEMO/htdocs/index.html] ---------- [2015-08-20 10:15:59]  
+[::ffff:10.63.42.15] [DEMO/static/css/common.css] ---------- [2015-08-20 10:15:59]  
+[::ffff:10.63.42.15] [DEMO/static/swiper/swiper.css] ---------- [2015-08-20 10:15:59]  
+[::ffff:10.63.42.15] [DEMO/uisvr/js/index.js] ---------- [2015-08-20 10:15:59]  
+[::ffff:10.63.42.15] [DEMO/static/swiper/swiper.js] ---------- [2015-08-20 10:15:59]  
+[::ffff:10.63.42.15] [DEMO/static/jQuery/jquery-1.9.1.js] ---------- [2015-08-20 10:15:59]  
+[::ffff:10.63.42.15] [DEMO/uisvr/css/index.css] ---------- [2015-08-20 10:15:59]  
+-----------加载新连接------------- 
+[::ffff:10.63.42.15] [DEMO/htdocs/index.html] ---------- [2015-08-20 10:16:21]  
+[::ffff:10.63.42.15] [DEMO/static/swiper/swiper.css] ---------- [2015-08-20 10:16:21]  
+[::ffff:10.63.42.15] [DEMO/static/css/common.css] ---------- [2015-08-20 10:16:21]  
+[::ffff:10.63.42.15] [DEMO/uisvr/css/index.css] ---------- [2015-08-20 10:16:21]  
+[::ffff:10.63.42.15] [DEMO/static/swiper/swiper.js] ---------- [2015-08-20 10:16:21]  
+[::ffff:10.63.42.15] [DEMO/uisvr/js/index.js] ---------- [2015-08-20 10:16:21]  
+[::ffff:10.63.42.15] [DEMO/static/jQuery/jquery-1.9.1.js] ---------- [2015-08-20 10:16:21]  
+-----------加载新连接------------- 
+[::ffff:10.63.42.15] [DEMO/htdocs/index.html] ---------- [2015-08-20 10:16:38]  
+[::ffff:10.63.42.15] [DEMO/static/css/common.css] ---------- [2015-08-20 10:16:38]  
+[::ffff:10.63.42.15] [DEMO/static/swiper/swiper.css] ---------- [2015-08-20 10:16:38]  
+[::ffff:10.63.42.15] [DEMO/uisvr/css/index.css] ---------- [2015-08-20 10:16:38]  
+[::ffff:10.63.42.15] [DEMO/static/jQuery/jquery-1.9.1.js] ---------- [2015-08-20 10:16:38]  
+[::ffff:10.63.42.15] [DEMO/static/swiper/swiper.js] ---------- [2015-08-20 10:16:38]  
+[::ffff:10.63.42.15] [DEMO/uisvr/js/index.js] ---------- [2015-08-20 10:16:38]  
+[::ffff:10.63.42.15] [DEMO/static/css/common.css] ---------- [2015-08-20 10:16:42]  
+[::ffff:10.63.42.15] [DEMO/static/swiper/swiper.css] ---------- [2015-08-20 10:16:42]  
+[::ffff:10.63.42.15] [DEMO/uisvr/css/index.css] ---------- [2015-08-20 10:16:42]  
+-----------加载新连接------------- 
+[::ffff:10.63.42.15] [DEMO/htdocs/index.html] ---------- [2015-08-20 10:17:40]  
+[::ffff:10.63.42.15] [DEMO/static/css/common.css] ---------- [2015-08-20 10:17:40]  
+[::ffff:10.63.42.15] [DEMO/static/swiper/swiper.css] ---------- [2015-08-20 10:17:40]  
+[::ffff:10.63.42.15] [DEMO/uisvr/css/index.css] ---------- [2015-08-20 10:17:40]  
+[::ffff:10.63.42.15] [DEMO/static/jQuery/jquery-1.9.1.js] ---------- [2015-08-20 10:17:40]  
+[::ffff:10.63.42.15] [DEMO/uisvr/js/index.js] ---------- [2015-08-20 10:17:40]  
+[::ffff:10.63.42.15] [DEMO/static/swiper/swiper.js] ---------- [2015-08-20 10:17:40]  
+-----------加载新连接------------- 
+[::ffff:10.63.42.15] [DEMO/htdocs/index.html] ---------- [2015-08-20 10:17:41]  
+--------[start 接受数据]--------
+name=111
+--------[end 接收数据]--------	
+-----------加载新连接------------- 
+[::ffff:10.63.42.15] [DEMO/htdocs/index.html] ---------- [2015-08-20 10:24:10]  
+[::ffff:10.63.42.15] [DEMO/static/css/common.css] ---------- [2015-08-20 10:24:10]  
+[::ffff:10.63.42.15] [DEMO/static/swiper/swiper.css] ---------- [2015-08-20 10:24:10]  
+[::ffff:10.63.42.15] [DEMO/uisvr/css/index.css] ---------- [2015-08-20 10:24:10]  
+[::ffff:10.63.42.15] [DEMO/static/jQuery/jquery-1.9.1.js] ---------- [2015-08-20 10:24:10]  
+[::ffff:10.63.42.15] [DEMO/static/swiper/swiper.js] ---------- [2015-08-20 10:24:10]  
+[::ffff:10.63.42.15] [DEMO/uisvr/js/index.js] ---------- [2015-08-20 10:24:10]  
+-----------加载新连接------------- 
+[::ffff:10.63.42.15] [DEMO/htdocs/index.html] ---------- [2015-08-20 10:24:11]  
+--------[start 接受数据]--------
+name=admin&pwd=123456
+--------[end 接收数据]--------	
