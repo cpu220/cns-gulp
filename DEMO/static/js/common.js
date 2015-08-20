@@ -35,8 +35,8 @@ var common = {
 		fs.exists(obj.path, function(exists) {
 			if (!exists) {
 				obj.error(exists)
-			} else { 
-				obj.success(exists);  
+			} else {
+				obj.success(exists);
 			}
 			obj.callback(exists);
 		});
@@ -46,6 +46,19 @@ var common = {
 		fs.readFile(obj.path, obj.encode, function(err, file) {
 			obj.callback(err, file);
 		});
+	},
+	//格式化日期
+	formatDate: function(date) {
+		var arr = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09"];
+		var D = date.getDate(),
+			M = date.getMonth() + 1,
+			Y = date.getFullYear(),
+			h = date.getHours(),
+			m = date.getMinutes(),
+			s = date.getSeconds();
+
+		return Y + "-" + (arr[M] || M) + "-" + (arr[D] || D) + " " +
+			(arr[h] || h) + ":" + (arr[m] || m) + ":" + (arr[s] || s);
 	}
 }
 

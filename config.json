@@ -14,7 +14,8 @@
 	"sync": true,
 	"log": {
 		"resourcesLog": true,
-		"resetLog": true
+		"resetLog": true,
+		"request":true
 	},
 	"doctypes": ["htm", "html", "php", "asp", "aspx"],
 	"suffix": {

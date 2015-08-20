@@ -3,7 +3,7 @@ var os = require('os');
 var url = require('url');
 var util = require('util');
 var path = require('path');
-var stream= require('stream');
+var stream = require('stream');
 var child_process = require("child_process");
 
 /*通用方法合集*/
@@ -69,7 +69,7 @@ var CNServer = {
 		var location = "http://" + pc.ip[0] + ":" + port + "/" + (html.index ? html.indexHTML : html.rootHTML);
 		child_process.exec(cmd + ' "' + location + '"');
 
-		var user = "----- [" + pc.host + "][" + pc.system + "][" + pc.release + "] [" + _this.formatDate(new Date()) + "] [服务器初始化结束] ----\n";
+		var user = "----- [" + pc.host + "][" + pc.system + "][" + pc.release + "] [" + common.formatDate(new Date()) + "] [服务器初始化结束] ----\n";
 
 		_this.appendLog(user);
 
@@ -124,7 +124,7 @@ var CNServer = {
 		if (_this.judgeFileType(url)) {
 			message += "-----------加载新连接------------- \n";
 		}
-		message += "[" + ip.address + "] [" + url + "] ---------- [" + (_this.formatDate(new Date())) + "]  \n";
+		message += "[" + ip.address + "][" + (common.formatDate(new Date())) + "] [" + url + "]    \n";
 		return message;
 	},
 	//判断访问资源文件类型
@@ -141,20 +141,7 @@ var CNServer = {
 		}
 		return status;
 
-	},
-	//时间格式format
-	formatDate: function(date) {
-		var arr = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09"];
-		var D = date.getDate(),
-			M = date.getMonth() + 1,
-			Y = date.getFullYear(),
-			h = date.getHours(),
-			m = date.getMinutes(),
-			s = date.getSeconds();
-
-		return Y + "-" + (arr[M] || M) + "-" + (arr[D] || D) + " " +
-			(arr[h] || h) + ":" + (arr[m] || m) + ":" + (arr[s] || s);
-	},
+	}, 
 	/*默认404页面*/
 	page404: function(req, res, path) {
 		res.writeHead(404, {
@@ -206,7 +193,7 @@ var CNServer = {
 								res.write(file, "binary");
 
 
-								_this.onData(req);
+								_this.opations.log.request ? (_this.onData(req)) : "";
 								res.end();
 								_this.opations.log.resourcesLog ? (_this.setLog(req, res)) : "";
 
@@ -234,7 +221,10 @@ var CNServer = {
 	onData: function(req) {
 		var _this = this;
 		req.on("data", function(data) {
-			var d = "--------[start 接受数据]--------\n" + data + "\n--------[end 接收数据]--------	\n";
+			var text = "[" + (common.formatDate(new Date())) + "][formatDate]: " + data.toString();
+
+			var d = "--------[start 接受数据]--------\n" + text + "\n--------[end 接收数据]--------	\n";
+
 			_this.appendLog(d);
 
 		});
@@ -250,7 +240,5 @@ var CNServer = {
 	}
 };
 
-module.exports = CNServer; 
+module.exports = CNServer;
 /*保留位*/
-
-

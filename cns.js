@@ -1,5 +1,5 @@
-var service = require("./service"); 
+var servicer = require("./servicer"); 
 
 
-service.init();
+servicer.init();
 
