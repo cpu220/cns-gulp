@@ -109,11 +109,15 @@ var CNServer = {
 	},
 	/*插入日志*/
 	appendLog: function(message) {
-		common.log.set("log.txt", message);
+		common.log.set("log.txt", message, {
+			encoding: 'utf-8',
+			bufferSize: 11
+		});
 
 	},
 	//读取资源
 	setLoadResources: function(req, res) {
+		 
 
 		var _this = this,
 			path = _this.getPath(req, res);
@@ -125,6 +129,8 @@ var CNServer = {
 			message += "-----------加载新连接------------- \n";
 		}
 		message += "[" + ip.address + "][" + (common.formatDate(new Date())) + "] [" + url + "]    \n";
+ 
+
 		return message;
 	},
 	//判断访问资源文件类型
@@ -141,7 +147,7 @@ var CNServer = {
 		}
 		return status;
 
-	}, 
+	},
 	/*默认404页面*/
 	page404: function(req, res, path) {
 		res.writeHead(404, {
@@ -220,25 +226,20 @@ var CNServer = {
 	/*监听数据传输*/
 	onData: function(req) {
 		var _this = this;
-		req.on("data", function(data) {
-			var text = "[" + (common.formatDate(new Date())) + "][formatDate]: " + data.toString();
+		// var dataArr = [], len = 0, data;
 
-			var d = "--------[start 接受数据]--------\n" + text + "\n--------[end 接收数据]--------	\n";
-
-			_this.appendLog(d);
-
+		req.on("data", function(data) { 
+			var d=common.formatData(data,_this.opations.log.dateType); 
+			var text = "[" + (common.formatDate(new Date())) + "][Form Date]: " +d; 
+			var log = "--------[start 接受数据]--------\n" + text + "\n--------[end 接收数据]--------	\n"; 
+			_this.appendLog(log); 
 		});
-		// var readable = getReadableStreamSomehow();
-
-		// readable.on('data', function(chunk) {
-		//   console.log('得到了 %d 字节的数据', chunk.length);
-		// })
+		 
 		req.on("request", function(data) {
 			console.log(data);
 
-		});
+		}); 
 	}
-};
-
+}; 
 module.exports = CNServer;
 /*保留位*/

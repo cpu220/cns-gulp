@@ -15,7 +15,8 @@
 	"log": {
 		"resourcesLog": true,
 		"resetLog": true,
-		"request":true
+		"request":true,
+		"dateType":"json"
 	},
 	"doctypes": ["htm", "html", "php", "asp", "aspx"],
 	"suffix": {

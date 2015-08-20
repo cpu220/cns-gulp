@@ -59,6 +59,30 @@ var common = {
 
 		return Y + "-" + (arr[M] || M) + "-" + (arr[D] || D) + " " +
 			(arr[h] || h) + ":" + (arr[m] || m) + ":" + (arr[s] || s);
+	},
+	//数据格式化
+	formatData: function(obj, type) {
+		var _this = this,
+			data = decodeURI(obj.toString()); 
+		if (type == "json") { 
+			data = _this.dataToObj(data);
+		} 
+		return data;
+	},
+	dataToObj: function(url) {
+		var obj = {};
+		var keyvalue = [];
+		var key = "",
+			value = "";
+
+		var paraString = url.substring(1, url.length).split("&");
+		for (var i in paraString) {
+			keyvalue = paraString[i].split("=");
+			key = keyvalue[0];
+			value = keyvalue[1];
+			obj[key] = value;
+		}
+		return JSON.stringify(obj);
 	}
 }
 
