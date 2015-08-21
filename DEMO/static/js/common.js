@@ -75,7 +75,7 @@ var common = {
 		var key = "",
 			value = "";
 
-		var paraString = url.substring(1, url.length).split("&");
+		var paraString = url.substring(0, url.length).split("&");
 		for (var i in paraString) {
 			keyvalue = paraString[i].split("=");
 			key = keyvalue[0];

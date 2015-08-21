@@ -106,6 +106,8 @@ var CNServer = {
 			resources = _this.setLoadResources(req, res);
 		var message = resources;
 		_this.appendLog(message);
+
+
 	},
 	/*插入日志*/
 	appendLog: function(message) {
@@ -117,19 +119,21 @@ var CNServer = {
 	},
 	//读取资源
 	setLoadResources: function(req, res) {
-		 
 
+		var visitorIP = req.socket.remoteAddress,
+			hostIP = req.socket.address().address;
 		var _this = this,
 			path = _this.getPath(req, res);
 		// var pc = _this.getHostIP();
+
 		var ip = req.socket.address(),
 			url = path.realPath,
 			message = "";
 		if (_this.judgeFileType(url)) {
-			message += "-----------加载新连接------------- \n";
+			message += "-----------加载新连接[" + hostIP + "]------------- \n";
 		}
-		message += "[" + ip.address + "][" + (common.formatDate(new Date())) + "] [" + url + "]    \n";
- 
+		message += "[" + visitorIP + "][" + (common.formatDate(new Date())) + "] [" + url + "]    \n";
+
 
 		return message;
 	},
@@ -199,6 +203,7 @@ var CNServer = {
 								res.write(file, "binary");
 
 
+
 								_this.opations.log.request ? (_this.onData(req)) : "";
 								res.end();
 								_this.opations.log.resourcesLog ? (_this.setLog(req, res)) : "";
@@ -227,19 +232,21 @@ var CNServer = {
 	onData: function(req) {
 		var _this = this;
 		// var dataArr = [], len = 0, data;
+		var visitorIP = req.socket.remoteAddress,
+			hostIP = req.socket.address().address;
 
-		req.on("data", function(data) { 
-			var d=common.formatData(data,_this.opations.log.dateType); 
-			var text = "[" + (common.formatDate(new Date())) + "][Form Date]: " +d; 
-			var log = "--------[start 接受数据]--------\n" + text + "\n--------[end 接收数据]--------	\n"; 
-			_this.appendLog(log); 
+		req.on("data", function(data) {
+			var d = common.formatData(data, _this.opations.log.dateType); 
+			var text = "[" + (common.formatDate(new Date())) + "]["+ visitorIP +"][Form Date]: " + d;
+			var log = "--------[start 接受数据]--------\n" + text + "\n--------[end 接收数据]--------	\n";
+			_this.appendLog(log);
 		});
-		 
+
 		req.on("request", function(data) {
 			console.log(data);
 
-		}); 
+		});
 	}
-}; 
+};
 module.exports = CNServer;
 /*保留位*/
