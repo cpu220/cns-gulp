@@ -4,7 +4,7 @@ var url = require('url');
 var util = require('util');
 var path = require('path');
 var stream = require('stream');
-var child_process = require("child_process");
+var child_process = require("child_process"); 
 
 /*通用方法合集*/
 var common = require("./DEMO/static/js/common.js");
@@ -245,7 +245,7 @@ var CNServer = {
 		req.on("request", function(data) {
 			console.log(data);
 
-		});
+		}); 
 	}
 };
 module.exports = CNServer;
