@@ -25,5 +25,5 @@ v0.0.9
 |autoOpenBrowser|{Object object} |true|是否自动打开浏览器|
 
 ##GIT
-	[传送门](https://coding.net/u/belial/p/CNS/git)
+[传送门](https://coding.net/u/belial/p/CNS/git)
 
