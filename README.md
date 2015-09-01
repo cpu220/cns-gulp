@@ -3,6 +3,19 @@ v0.0.9
 
 基于node的service，用于前端h5快速开发，调试用。目前为第一版
 
+##使用
+* Mac
+	
+		$ node cns
+
+* windows
+	1. [node官网](https://nodejs.org/) 下载安装node
+	2. 安装好后直接双击**cns.bat**
+	3. 确保手机与pc在同一网络后，扫描屏幕出现的二维码
+
+## 目录结构
+
+
 ##config.json
    
 | 参数 | 类型 |默认值| 说明 |
