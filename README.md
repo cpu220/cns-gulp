@@ -1,12 +1,7 @@
-
-<style>
- .fn-error{color:#f4333c}
-</style>
 #CNS 
-### v0.0.9
-
+### v0.0.9 
 基于node的service，用于前端h5快速开发，调试用。目前为第一版<br />
-至于为毛要叫CNS（ChenPower`s node-service）
+至于为毛要叫CNS（ChenPower`s node-service） 
 
 ##使用
 * Mac
@@ -17,13 +12,13 @@
 	2. 安装好后直接双击**cns.bat**
 	3. 确保手机与pc在同一网络后，扫描屏幕出现的二维码
 
-## 目录结构
+## 目录结构 
 
  
 	└─DEMO //web总目录
 	    ├─htdocs //demo存放目录
 	    │  └─card //demo案例。
-	    ├─static //框架css、js引入
+	    ├─static //框架css、js引入.（由于github稳定问题，所依赖的js更改为本地。不另设选择框架选项）
 	    │  ├─css
 	    │  ├─jQuery
 	    │  ├─js
@@ -34,7 +29,7 @@
 	        
 
 ##config.json
- CNS的动态配置文件，<span class="fn-error">注意</span>:每次修改需要重启才能生效。
+ CNS的动态配置文件，<span style="color:#f4333c"">注意</span>:每次修改需要重启才能生效。
    
 | 参数 | 类型 |默认值| 说明 |
 | ------------- |:-------------:| :----------:| -----:|
@@ -61,4 +56,4 @@
  
 
 ##GIT
-[传送门](https://coding.net/u/belial/p/CNS/git)
+[传送门](https://coding.net/u/belial/p/CNS/git) 
