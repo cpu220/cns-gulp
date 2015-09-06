@@ -36,6 +36,19 @@ v0.0.9
 |judgeFileType|{Object Array}|["htm", "html", "php", "asp", "aspx"]|允许访问的文件格式|
 |suffix|{Object object}||资源加载文件类型列表|
 |autoOpenBrowser|{Object object} |true|是否自动打开浏览器|
+ 
+	└─DEMO
+	    ├─htdocs
+	    │  └─card
+	    ├─static
+	    │  ├─css
+	    │  ├─jQuery
+	    │  ├─js
+	    │  └─swiper
+	    └─uisvr
+	        ├─css
+	        └─js
+ 
 
 ##GIT
 [传送门](https://coding.net/u/belial/p/CNS/git)
