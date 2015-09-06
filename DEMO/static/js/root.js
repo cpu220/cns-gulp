@@ -1,11 +1,9 @@
 $(document).ready(function() {
 	var root = {
-		init: function(fileName) {
-			this.doAjax(fileName); 
-			
-
+		init: function() {
+			this.doAjax("ip");  
 		},
-		/* 获取本地动态生成的ip地址，用于手机端即时访问
+		/* 异步获取本地动态生成的ip地址，用于手机端即时访问
 		 * return {object Object} 将ip.json获取后直接用于使用
 		 */
 		doAjax: function(fileName) {
@@ -14,8 +12,7 @@ $(document).ready(function() {
 				type: "GET",
 				url: fileName + ".json",
 				dataType: "json",
-				success: function(data) {
-					a = data;
+				success: function(data) { 
 					_this.creatDOM(data);
 				},
 				error: function(err) {
@@ -74,6 +71,6 @@ $(document).ready(function() {
 		}
 
 	};
-	root.init("ip");
+	root.init();
 
 })

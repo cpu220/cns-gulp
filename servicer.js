@@ -43,8 +43,7 @@ var CNServer = {
 			port: this.opations.service.port,
 			index: this.opations.html.indexHTML
 		};
-		common.log.reset("./DEMO/ip.json", JSON.stringify(json));
-
+		common.log.reset("./DEMO/ip.json", JSON.stringify(json)); 
 		return json
 	},
 	/*根据操作系统打开浏览器*/
