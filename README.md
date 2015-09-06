@@ -6,8 +6,7 @@ v0.0.9
 ##使用
 * Mac
 	
-		$ node cns
-
+		$ node cns 
 * windows
 	1. [node官网](https://nodejs.org/) 下载安装node
 	2. 安装好后直接双击**cns.bat**
@@ -15,6 +14,19 @@ v0.0.9
 
 ## 目录结构
 
+ 
+	└─DEMO //web总目录
+	    ├─htdocs //demo存放目录
+	    │  └─card //demo案例。
+	    ├─static //框架css、js引入
+	    │  ├─css
+	    │  ├─jQuery
+	    │  ├─js
+	    │  └─swiper
+	    └─uisvr //对应 htdocs页面js、css地址存放
+	        ├─css
+	        └─js
+	        
 
 ##config.json
    
@@ -36,18 +48,9 @@ v0.0.9
 |judgeFileType|{Object Array}|["htm", "html", "php", "asp", "aspx"]|允许访问的文件格式|
 |suffix|{Object object}||资源加载文件类型列表|
 |autoOpenBrowser|{Object object} |true|是否自动打开浏览器|
- 
-	└─DEMO
-	    ├─htdocs
-	    │  └─card
-	    ├─static
-	    │  ├─css
-	    │  ├─jQuery
-	    │  ├─js
-	    │  └─swiper
-	    └─uisvr
-	        ├─css
-	        └─js
+
+
+
  
 
 ##GIT
