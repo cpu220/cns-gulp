@@ -7,7 +7,7 @@ var stream = require('stream');
 var child_process = require("child_process"); 
 
 /*通用方法合集*/
-var common = require("./DEMO/static/js/common.js");
+var common = require("./DEMO/static/js/common-cns.js");
 /*配置参数*/
 var config = require("./config.json");
 
