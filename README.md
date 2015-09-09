@@ -1,10 +1,14 @@
-<<<<<<< HEAD
+
 #CNS 
-### v0.0.9 
+### v0.10.0 
 基于node的service，用于前端h5快速开发，调试用。目前为第一版<br />
 至于为毛要叫CNS（ChenPower`s node-service） 
 
+
+
 ##使用
+* 使用前需要先判断是否已安装gulp
+
 * Mac
 	
 		$ node cns 
@@ -67,21 +71,21 @@
 | 参数 | 类型 |默认值| 说明 |
 | ------------- |:-------------:| :----------:| -----:|
 | indexHTML     | {Object string} | "htdocs/index.html"|扫码后进入的页面 |
-| rootHTML |{Object string} | "root.html"|扫码页面地址 |
+| rootHTML |{Object string} | "root.html"|扫码页面地址|
 | index|{Object bool}|false|是否直接打开目标页面，跳过root页面|
 |root|{Object string}|"DEMO"|自定义项目根目录|
-|version|{Object string} |0.0.9|CNS版本号|
+|version|{Object string} |0.10.0|CNS版本号|
 |hostName|{Object boolean}|true|是否已ip为地址而不是localhost|
 |ipType|{Object string}| "IPv4"|ip类型
-|port|{Object Int}|8080|自定义端口|
-|sync|{Object boolean}|false|所见即所得</br>（该功能正在拼命开发中，请期待0.10.0版本)|
+|port|{Object Int}|8080|自定义端口| 
 |resourcesLog|{Object boolean}|true|日志是否记录资源加载项|
-|resetLog|{Object boolean}|true|每次启动CNS是否重置log|
-|request|{Object boolean}|true|是否监听web数据请求|
-|dateType|{Object string}|"json"|日志内对网络请求的记录格式：json、string|
-|judgeFileType|{Object array}|["htm", "html", "php", "asp", "aspx"]|允许访问的文件格式|
-|suffix|{Object object}| *详情见代码*|资源加载文件类型字典表|
+|resetLog|{Object boolean}|true|每次启动CNS是否重置log (暂停)|
+|request|{Object boolean}|true|是否监听web数据请求(暂停)|
+|dateType|{Object string}|"json"|日志内对网络请求的记录格式：json、string(暂停)|
+|judgeFileType|{Object array}|["htm", "html", "php", "asp", "aspx"]|允许访问的文件格式(暂停)|
+|suffix|{Object object}| *详情见代码*|资源加载文件类型字典表(暂停)|
 |autoOpenBrowser|{Object object} |true|是否自动打开浏览器|
+|livereload|{Object boolean}|false|所见即所得</br>（该功能正在拼命开发中，请期待0.10.0版本)|
 
 
 ##ip.json
@@ -89,7 +93,5 @@
  
 
 ##GIT
-[传送门](https://coding.net/u/belial/p/CNS/git) 
-=======
-#gulp-cns
->>>>>>> d663b109b70587d095cc13521f34e16816eba393
+[传送门](https://coding.net/u/belial/p/gulp-cns/git) 
+
