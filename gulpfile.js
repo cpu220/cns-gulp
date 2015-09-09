@@ -3,12 +3,13 @@ var gulp = require('gulp'),
 /*配置参数*/
 var url = require('url');
 
-var config = require("./config.json");
+var config = require("./config.json"); 
 
 
 var CNServer = {
 	opation: config,
 	init: function () {
+
 		this.connectServer();
 		this.onTask();
 	},
