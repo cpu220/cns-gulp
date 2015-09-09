@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #CNS 
 ### v0.0.9 
 基于node的service，用于前端h5快速开发，调试用。目前为第一版<br />
@@ -89,3 +90,6 @@
 
 ##GIT
 [传送门](https://coding.net/u/belial/p/CNS/git) 
+=======
+#gulp-cns
+>>>>>>> d663b109b70587d095cc13521f34e16816eba393
