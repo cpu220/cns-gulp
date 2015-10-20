@@ -13,7 +13,7 @@
 }
 .nav-head .nav-head-title .title-main:hover {
 	-webkit-animation: "shake" 0.2s   2 normal;
-	animation: "shake" 0.2s   2 normal;
+	animation: "shake" 0.5s   2 normal;
 }
 .nav-head .nav-head-title .title-sub {
 	font-size: 14px;
@@ -96,15 +96,40 @@
 	border-width: 1px;
 	border-color: #0ae;
 }
-.main ul li:hover {
+.main ul li img {
+ 
+	transition: 0.5s;
+	-moz-transition: 0.5s; /* Firefox 4 */
+	-webkit-transition:0.5s; /* Safari and Chrome */
+	-o-transition: 0.5s; /* Opera */
+}
+
+.main ul li:hover img {
+	
+	/*-webkit-animation: "act1" 0.5s linear ;*/ 
+
+	transform:scale(1.1);
+	-moz-transform:scale(1.1); /* Firefox 4 */
+	-webkit-transform:scale(1.1); /* Safari and Chrome */
+	-o-transform:scale(1.1); /* Opera */
+}
+
+.main ul li a{
+	transition-duration:1s,1s,1s,1s,1s,1s;
+}
+.main ul li:hover a {
+	color:#f4333c; 
+}	
+.main ul li:hover{
 	-webkit-box-shadow: 0 0 6px #828385;
 	-moz-box-shadow: 0 0 6px #828385;
 	box-shadow: 0 0 6px #828385;
-	-webkit-animation: "act1" 0.5s linear;
-}
+} 
+
 .main ul li .qrcodeIMG {
-	padding: 15px 15px 15px 10px;
+	padding: 15px 15px 15px 15px;
 }
+
 .nav-foot {
 	width: 100%;
 	height: 50px;

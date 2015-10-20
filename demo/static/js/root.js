@@ -64,8 +64,8 @@ $(document).ready(function() {
 		setQrCode: function(object) {
 
 			var qrcode = new QRCode(object.id, {
-				width: 150, //设置宽高
-				height: 150
+				width: 140, //设置宽高
+				height: 140, 
 			});
 			qrcode.makeCode(object.url);
 		}
