@@ -38,7 +38,7 @@
 	-webkit-animation: "help" 4s   infinite normal;
 }
 .nav-head .head-tools .J-help:after {
-	content: "\e64a";
+	content: "\e603";
 	font-size: 26px;
 	line-height: 50px;
 	font-family: "iconfont";

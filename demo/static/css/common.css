@@ -10,7 +10,7 @@ th, td /* table elements 表格元素 */ {
 
 body {
   background: #eee;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: '微软雅黑', 'Helvetica Neue', sans-serif, SimHei;;
   font-size: 14px;
   color: #1a1a1a;
   margin: 0;

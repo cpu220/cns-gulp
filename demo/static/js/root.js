@@ -1,7 +1,11 @@
 $(document).ready(function() {
 	var root = {
 		init: function() {
-			this.doAjax("ip");  
+			this.doAjax("ip"); 
+			this.onEvent(); 
+		},
+		onEvent:function(){
+			this.onHelp();
 		},
 		/* 异步获取本地动态生成的ip地址，用于手机端即时访问
 		 * return {object Object} 将ip.json获取后直接用于使用
@@ -68,6 +72,21 @@ $(document).ready(function() {
 				height: 140, 
 			});
 			qrcode.makeCode(object.url);
+		},
+		/*
+		* 右上角菜单
+		*/
+		onHelp:function(){
+			$(".J-about").on("click",function(e){
+				confirmBox({
+					head:"About",
+					msgTitle:"作者声明",
+					msgContent:"本工具开源，如要修改或二次开发请告知作者。Thanks!",
+					confirmBtn:"知道了",
+					cancelBtnSwitch:false
+
+				});
+			});
 		}
 
 	};
