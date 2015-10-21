@@ -1,6 +1,3 @@
-(function(){
-	
-})()
 var confirmBox = function(define) {
 	//默认参数
 	var defaults = {
@@ -11,7 +8,7 @@ var confirmBox = function(define) {
 		msgTitle: "这里是内容标题",
 		msgContent: "这里是内容正文",
 		confirmBtn: "确&nbsp;&nbsp;定", //确定按钮文案
-		cancelBtn: "", //取消按钮文案，若为空，则默认为[取消]
+		cancelBtn: "", //取消按钮文案，若为空，则默认为取消
 		smartrackerOk: "", //确定按钮的埋点seed
 		smartrackerCancel: "", //取消按钮的埋点seed
 		beforeClose: function() {}, //关闭前的回调函数
@@ -80,7 +77,7 @@ var confirmBox = function(define) {
 
 			//内容区域
 			var innerDOM = this.innerHTML(options);
-
+			var cbLength=$(".confirmBox").length;
 			//整体DOM拼合	
 			var HtmlDOM = maskLayerDOM +
 				"<div class='confirmBox-border' style='width:" + options.width + ";min-height:" + options.height + ";'>" +
@@ -88,13 +85,13 @@ var confirmBox = function(define) {
 				"<div class='confirmBox-innerbox' style='min-height:" + innerHeight + "px;'>" + innerDOM + "</div> " + buttonDOM +
 				"</div> </div>";
 
-			return "<div class='confirmBox cb-" + version + " cb-" + (confirmBox.count++) + " '>" + HtmlDOM + "</div>";
+			return "<div class='confirmBox cb-" + version + " cb-" + (++cbLength) + " '>" + HtmlDOM + "</div>";
 
 		},
 		headHTML: function(options) {
 			var headDOM = "<span class='confirmBox-close " + (options.animateCloseBtn ? "animate-confirmBox-close" : "") + "'>×</span>" +
 				"<div class='confirmBox-head'>" +
-				"<div class='confirmBox-title'>"+options.head+"</div>" +
+				"<div class='confirmBox-title'></div>" +
 				"</div>";
 			return headDOM;
 		},
@@ -187,8 +184,10 @@ var confirmBox = function(define) {
 			});
 		},
 		//相关事件绑定
-		onEvent: function(options) {_this=this
-			$(".confirmBox-close , .cb-btn-close,.cb-btn-confirm ").on("click", function(e) {
+		onEvent: function(options) {
+			var _this=this;
+			var cbLength=$(".confirmBox").length
+			$(".confirmBox:last").find(".confirmBox-close , .cb-btn-close,.cb-btn-confirm ").on("click", function(e) {
 				e.preventDefault();
 
 				if ($(this).attr("class").toString().indexOf("close") > 0) {
@@ -250,7 +249,7 @@ var confirmBox = function(define) {
 			}
 		}
 	};
+	// return  cb;
 	confirmBox.prototype = cb;
 	cb.open(define);
 }
-confirmBox.count = 1;
