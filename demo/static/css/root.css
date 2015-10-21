@@ -124,6 +124,10 @@
 	-webkit-box-shadow: 0 0 6px #828385;
 	-moz-box-shadow: 0 0 6px #828385;
 	box-shadow: 0 0 6px #828385;
+
+	-webkit-animation-name: breathingLight;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
 } 
 
 .main ul li .qrcodeIMG {
@@ -181,4 +185,22 @@
 	100% {
 		-webkit-transform: rotateZ(0deg);
 	}
+}
+
+@-webkit-keyframes 'breathingLight' {
+        from {
+                /*background-color: #f6fcfe;*/
+                /*border-radius:0px;*/
+                -webkit-box-shadow:0 0 5px #828385;
+        }
+  50% {
+                /*background-color: #eee;*/
+                /*border-radius:30px;*/
+                -webkit-box-shadow: 0 0 10px #0ae;
+        }
+  to {
+                /*background-color: #f6fcfe;*/
+                /*border-radius:0px;*/
+                -webkit-box-shadow:0 0 5px #828385;
+        }
 }
