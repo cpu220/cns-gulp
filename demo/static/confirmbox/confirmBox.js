@@ -1,6 +1,6 @@
 var confirmBox = function(define) {
 	//默认参数
-	var defaults = {
+	var defaults = { 
 		width: "520px",
 		height: "230px",
 		head: "confirmBox标题",
@@ -91,7 +91,7 @@ var confirmBox = function(define) {
 		headHTML: function(options) {
 			var headDOM = "<span class='confirmBox-close " + (options.animateCloseBtn ? "animate-confirmBox-close" : "") + "'>×</span>" +
 				"<div class='confirmBox-head'>" +
-				"<div class='confirmBox-title'></div>" +
+				"<div class='confirmBox-title'>"+options.head+"</div>" +
 				"</div>";
 			return headDOM;
 		},
