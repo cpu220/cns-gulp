@@ -1,8 +1,8 @@
 $(document).ready(function() {
 	var root = {
 		init: function() {
-			this.doAjax("ip"); 
-			this.onEvent(); 
+			this.doAjax("ip");
+			this.onEvent();
 		},
 		onEvent:function(){
 			this.onHelp();
@@ -16,7 +16,7 @@ $(document).ready(function() {
 				type: "GET",
 				url: fileName + ".json",
 				dataType: "json",
-				success: function(data) { 
+				success: function(data) {
 					_this.creatDOM(data);
 				},
 				error: function(err) {
@@ -34,12 +34,12 @@ $(document).ready(function() {
 			for (var i in json.ip) {
 				var num = (parseInt(i) + 1),
 					url = "http://" + json.ip[i] + ":" + json.port + "/" + json.index;
-					 
+
 				str += "<li data-num='" + num + "'>" +
 					"<div class='qrcodeBox'  >" +
 					"<div id='qrcode" + num + "' class='qrcodeIMG' data-url='"+url+"' ></div>" +
-					"<div class='qrcode-title'><a href='" + url + "'>地址" + num + ":[" + json.ip[i] + "]</a></div>"+ 
-					"</div></li>"; 
+					"<div class='qrcode-title'><a href='" + url + "'>地址" + num + ":[" + json.ip[i] + "]</a></div>"+
+					"</div></li>";
 
 			}
 			$("#qrcodeList").append(str);
@@ -69,7 +69,7 @@ $(document).ready(function() {
 
 			var qrcode = new QRCode(object.id, {
 				width: 140, //设置宽高
-				height: 140, 
+				height: 140,
 			});
 			qrcode.makeCode(object.url);
 		},
