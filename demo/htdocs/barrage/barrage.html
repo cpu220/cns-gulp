@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html >
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="keywords" content="">
+
+  <link rel="stylesheet" href="../../static/css/common.css" />  
+  <script src="../../static/jQuery/jquery-1.9.1.js"></script>   
+
+  <script src="barrage.js"></script>
+
+
+
+ 
+    <title>弹幕展示页面</title>
+    <style>
+  * { margin: 0px;padding:0px; } 
+  .J-content{
+    border-bottom:solid 1px #ccc; 
+    height:300px;
+    position: relative;
+    overflow: hidden;
+  } 
+  .barrage-msg{
+    white-space:nowrap;
+    position: absolute;
+    font-size:18px;  
+
+  }
+  .barrage-msg.start{ 
+    right:0px;
+    -webkit-animation-name:"barrage";
+    /*-webkit-animation-duration:8s;*/
+    -webkit-animation-iteration-count:1;  
+
+    /*-webkit-animation: "barrage" 8s   1 normal;*/
+    /*animation: "barrage" 8s   1 normal;*/
+
+  }
+  .barrage-msg.end{
+     display: none;
+  }
+  
+   
+  
+  @-webkit-keyframes "barrage" {
+  0% {
+    right:-20%;
+  } 
+  100% {
+    right:150%;
+  }
+}
+    </style>
+  
+</head>
+ 
+<body>
+  <div id="a1">
+    <div class="J-content">
+       
+    </div>
+  </div>
+  
+  
+    
+      
+</body>
+  <script> 
+ 
+  </script>
+</html>

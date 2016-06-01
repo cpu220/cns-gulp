@@ -1,6 +1,6 @@
 {
 	"html": {
-		"indexHTML": "htdocs/index.html",
+		"indexHTML": "htdocs/require/index.html", 
 		"rootHTML": "root.html",
 		"index": false,
 		"root": "demo"
@@ -9,7 +9,7 @@
 	"service": {
 		"hostName": true,
 		"ipType": "IPv4",
-		"port": 8080
+		"port": 8000
 	},
 	"log": {
 		"resourcesLog": true,

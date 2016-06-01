@@ -83,7 +83,8 @@ $(document).ready(function() {
 					msgTitle:"作者声明",
 					msgContent:"本工具开源，如要修改或二次开发请告知作者,以便于更好的维护此工具。Thanks!",
 					confirmBtn:"知道了",
-					cancelBtnSwitch:false
+					cancelBtnSwitch:false,
+					headSwitch:false
 
 				});
 			});

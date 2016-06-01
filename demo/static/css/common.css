@@ -22,7 +22,7 @@ body {
 .fn-hide {
   display: none;
 }
-.fn-clear{
+.fn-clear:after{
   content: '\20';
   display: block;
   height: 0;
