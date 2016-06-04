@@ -5,7 +5,7 @@ require([
 	root.css+"/static/swiper/swiper",
 	root.css+"/uisvr/css/index"
 ],function($,swiper){
-	
+
 	$(document).ready(function() {
 		var invitation = {
 			init: function() {
@@ -63,5 +63,6 @@ require([
 		};
 		invitation.init();
 
-	})
+	});
+	
 });

@@ -1,6 +1,6 @@
 {
 	"html": {
-		"indexHTML": "htdocs/require/index.html",
+		"indexHTML": "htdocs/happy/happy.html",
 		"rootHTML": "root.html",
 		"index": false,
 		"root": "demo"

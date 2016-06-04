@@ -8,24 +8,24 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="keywords" content="">
 
-   
-  <script src="jquery-1.9.1.js"></script>   
+
+  <script src="jquery-1.9.1.js"></script>
 
   <script src="happy.js"></script>
 
 
 
- 
+
     <title>弹幕展示页面</title>
     <style>
-  * { margin: 0px;padding:0px; } 
+  * { margin: 0px;padding:0px; }
   html, body {
   height: 100%
 }
 #main {
   width: 100%;
   height: 100%;
-  border:solid 1px;
+  /*border:solid 1px;*/
   position: relative;
  /* background:#000;
   opacity: 0.1;*/
@@ -35,15 +35,15 @@
   background-size:25px 25px;
   width:25px;
   height:25px;
-  position:absolute; 
+  position:absolute;
 }
 .happy{
   position: relative;
   top: 20%;
   /*border:solid 1px #f00;*/
-  width:265px; 
+  width:265px;
   /*height:462px;*/
-  margin:auto; 
+  margin:auto;
 }
 .happy .msg-content{
    width:265px;
@@ -58,7 +58,7 @@
   height:186px;
   position: absolute;
   visibility: hidden;
-  -webkit-transform-origin: bottom;  
+  -webkit-transform-origin: bottom;
 
 
 }
@@ -66,12 +66,12 @@
   background: url("line.png") no-repeat;
 
   width:151px;
-  height:18px;  
+  height:18px;
   position: absolute;
   left: 84px;
-  top: 82px;  
+  top: 82px;
 }
-.happy .J-cake-content{ 
+.happy .J-cake-content{
   /*-webkit-animation-timing-function: cubic-bezier(0.54, 0.06, 0.71, 0.26); */
 }
 
@@ -82,7 +82,7 @@
   height:226px;
   position: relative;
   z-index: 11;
-  -webkit-transform-origin: bottom;  
+  -webkit-transform-origin: bottom;
 }
 .happy .J-dish{
   background:url("dish.png") no-repeat;
@@ -97,7 +97,7 @@
 }
 
 .happy .J-cake-lage .fire{
-  
+
   background-size: 8px 19px;
   width:10px;
   height:19px;
@@ -107,12 +107,12 @@
 .happy .J-cake-lage .fireLeft{
   background: url("fireLeft.png") no-repeat;
   -webkit-animation: "fireLeft" 0.5s  infinite;
-  -webkit-transform-origin: bottom; 
+  -webkit-transform-origin: bottom;
 }
 .happy .J-cake-lage .fireRight{
   background: url("fireRight.png") no-repeat;
   -webkit-animation: "fireRight" 0.5s  infinite;
-  -webkit-transform-origin: bottom; 
+  -webkit-transform-origin: bottom;
 }
 
 .happy .J-cake-lage .fire-1{
@@ -139,36 +139,36 @@
 .fn-hide{display: none;}
 .am-dropCakes{
   -webkit-animation-name:"dropCakes";
-    -webkit-animation-iteration-count:1; 
+    -webkit-animation-iteration-count:1;
 }
 .am-right{
    -webkit-animation-name:"roundRight";
-    -webkit-animation-iteration-count:1; 
+    -webkit-animation-iteration-count:1;
   }
 .am-left{
    -webkit-animation-name:"roundLeft";
-    -webkit-animation-iteration-count:1; 
-}  
+    -webkit-animation-iteration-count:1;
+}
 
 .am-line{
   -webkit-animation-name:"line";
   /*-webkit-animation-timing-function: cubic-bezier(0.54, 0.06, 0.71, 0.26); */
-   
-  -webkit-animation-iteration-count:1; 
+
+  -webkit-animation-iteration-count:1;
 }
 .dropContent{
-  -webkit-animation-name:"dropContent"; 
-  -webkit-animation-iteration-count:1; 
+  -webkit-animation-name:"dropContent";
+  -webkit-animation-iteration-count:1;
   /*-webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);*/
 }
 .dropHappy{
-   -webkit-animation-name:"dropHappy"; 
-   -webkit-animation-iteration-count:1; 
+   -webkit-animation-name:"dropHappy";
+   -webkit-animation-iteration-count:1;
 }
 
 .elasticity{
-  -webkit-animation-name:"elasticity"; 
-  -webkit-animation-duration:1s; 
+  -webkit-animation-name:"elasticity";
+  -webkit-animation-duration:1s;
   -webkit-animation-iteration-count:1;
 }
 
@@ -176,119 +176,119 @@
 
 @-webkit-keyframes "roundRight" {
   0% {
-    -webkit-transform:rotate(0deg); 
-    top:-20px; 
-  } 
-  100% {
-    -webkit-transform:rotate(-360deg); 
-    top:110%;
-     
+    -webkit-transform:rotate(0deg);
+    top:-20px;
   }
-} 
+  100% {
+    -webkit-transform:rotate(-360deg);
+    top:110%;
+
+  }
+}
 
   @-webkit-keyframes "roundLeft" {
   0% {
-    -webkit-transform:rotate(0deg); 
-    top:-20px;  
-  } 
+    -webkit-transform:rotate(0deg);
+    top:-20px;
+  }
   100% {
-    -webkit-transform:rotate(360deg); 
-    top:110%; 
+    -webkit-transform:rotate(360deg);
+    top:110%;
   }
  }
 
 /*所有小蛋糕掉落*/
 @-webkit-keyframes "dropCakes" {
   0% {
-    -webkit-transform:rotate(0deg); 
-    top:-20px; 
-  } 
+    -webkit-transform:rotate(0deg);
+    top:-20px;
+  }
   100% {
-    -webkit-transform:rotate(-360deg); 
+    -webkit-transform:rotate(-360deg);
     top:120%;
-    
+
   }
 }
 /*整体容器掉落*/
   @-webkit-keyframes "dropContent" {
-    0% {  top:-100%;  }   
+    0% {  top:-100%;  }
     100% {  top: 20%;}
   }
   /*happy文字掉落*/
   @-webkit-keyframes "dropHappy" {
-    0% {  top:-100%;  }   
+    0% {  top:-100%;  }
     100% {  top: 0;}
   }
   /*反弹*/
   @-webkit-keyframes "elasticity"{
     0%{-webkit-transform: scaleY(1.0);}
     50%{-webkit-transform: scaleY(0.8);}
-    100%{-webkit-transform: scaleY(1.0);} 
+    100%{-webkit-transform: scaleY(1.0);}
 
   }
   @-webkit-keyframes "line" {
-        0% {  left:-100%; }  
+        0% {  left:-100%; }
         100% {  left:84px; }
   }
 
  @-webkit-keyframes "fireRight"{
-    0%{ 
-      opacity: 0.4; 
+    0%{
+      opacity: 0.4;
       -webkit-transform: rotateZ(0deg);
        }
-    25%{ 
-      opacity: 0.6; 
+    25%{
+      opacity: 0.6;
       -webkit-transform: rotateZ(5deg);
     }
-    50%{ 
+    50%{
       opacity: 0.9;
       -webkit-transform: rotateZ(0deg);
-      
+
        }
-    75%{ 
+    75%{
       opacity: 0.6;
       -webkit-transform: rotateZ(-5deg);
-      
+
        }
     100%{
       opacity: 0.4;
 
       -webkit-transform: rotateZ(0deg);
-    }  
+    }
  }
 
  @-webkit-keyframes "fireLeft"{
-    0%{ 
-      opacity: 0.9; 
+    0%{
+      opacity: 0.9;
       -webkit-transform: rotateZ(0deg);
        }
-    25%{ 
-      opacity: 0.6; 
+    25%{
+      opacity: 0.6;
       -webkit-transform: rotateZ(-5deg);
     }
-    50%{ 
+    50%{
       opacity: 0.4;
       -webkit-transform: rotateZ(0deg);
-      
+
        }
-    75%{ 
+    75%{
       opacity: 0.6;
       -webkit-transform: rotateZ(5deg);
-      
+
        }
     100%{
-      opacity: 0.9; 
+      opacity: 0.9;
       -webkit-transform: rotateZ(0deg);
-    }    
+    }
  }
 
 
-  
+
 
     </style>
-  
+
 </head>
- 
+
 <body>
  <div id="main">
      <div class="happy">
@@ -298,7 +298,7 @@
             <div class="line fn-hide"></div>
           </div>
         </div>
-        
+
         <!-- happyBirthday end -->
 
         <!-- cakeLage start -->
@@ -312,16 +312,16 @@
             <div class="fireRight fire fire-5"></div>
           </div>
           <!-- dish -->
-          <div class="J-dish"></div> 
+          <div class="J-dish"></div>
         </div>
         <!-- cakeLage end -->
 
-     </div> 
- </div> 
-    
-      
+     </div>
+ </div>
+
+
 </body>
-  <script> 
+  <script>
   $(document).ready(function(){
       page.init({
         elem: "#main",
@@ -330,6 +330,6 @@
         cakesNum: 10
       });
   });
- 
+
   </script>
 </html>
