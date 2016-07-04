@@ -1,8 +1,8 @@
 
-#CNS 
-### v0.10.0 
+#CNS
+### v0.10.0
 基于node的service，用于前端h5快速开发，调试用。目前为第一版<br />
-至于为毛要叫CNS（ChenPower`s node-service） 
+至于为毛要叫CNS（ChenPower`s node-service）
 
 
 
@@ -10,14 +10,13 @@
 * 使用前需要先判断是否已安装gulp
 
 * Mac
-	
-		$ node cns 
+		$ gulp
 * windows
 	1. [node官网](https://nodejs.org/) 下载安装node
 	2. 安装好后直接双击**cns.bat**
 	3. 确保手机与pc在同一网络后，扫描屏幕出现的二维码
 
-## 目录结构 
+## 目录结构
  <span style="color:#f4333c"">注意</span>: 此文件树为v0.10.0以前版本，之后会大幅度变更
 
 
@@ -34,8 +33,8 @@
 	│   ├── root.html
 	│   ├── static //框架css、js引入.（由于github稳定问题，所依赖的js更改为本地。不另设选择框架选项）
 	│   │   ├── css
-	│   │   │   ├── common.css // 全局css框架文件 
-	│   │   │   ├── iconfont.eot 
+	│   │   │   ├── common.css // 全局css框架文件
+	│   │   │   ├── iconfont.eot
 	│   │   │   ├── iconfont.svg
 	│   │   │   ├── iconfont.ttf
 	│   │   │   ├── iconfont.woff
@@ -52,22 +51,22 @@
 	│   │       ├── swiper.min.css
 	│   │       └── swiper.min.js
 	│   └── uisvr //对应 htdocs页面js、css地址存放
-	│       ├── css 
-	│       │   └── index.css 
+	│       ├── css
+	│       │   └── index.css
 	│       └── js
 	│           └── index.js
-	├── README.md 
+	├── README.md
 	├── Staticfile
 	├── cns.js //启动文件
 	├── config.json //cns全局配置文件
 	├── log.txt //服务器日志
 	├── CNS.bat // 对应windows的启动文件
 	└── servicer.js //CNS服务器对应代码
- 
+
 
 ##config.json
  CNS的动态配置文件，<span style="color:#f4333c"">注意</span>:每次修改需要重启才能生效。
-   
+
 | 参数 | 类型 |默认值| 说明 |
 | ------------- |:-------------:| :----------:| -----:|
 | indexHTML     | {Object string} | "htdocs/index.html"|扫码后进入的页面 |
@@ -77,7 +76,7 @@
 |version|{Object string} |0.10.0|CNS版本号|
 |hostName|{Object boolean}|true|是否已ip为地址而不是localhost|
 |ipType|{Object string}| "IPv4"|ip类型
-|port|{Object Int}|8080|自定义端口| 
+|port|{Object Int}|8080|自定义端口|
 |resourcesLog|{Object boolean}|true|日志是否记录资源加载项|
 |resetLog|{Object boolean}|true|每次启动CNS是否重置log (暂停)|
 |request|{Object boolean}|true|是否监听web数据请求(暂停)|
@@ -90,8 +89,7 @@
 
 ##ip.json
 用于记录服务器运行信息,生成对应二维码
- 
+
 
 ##GIT
-[传送门](https://coding.net/u/belial/p/gulp-cns/git) 
-
+[传送门](https://coding.net/u/belial/p/gulp-cns/git)

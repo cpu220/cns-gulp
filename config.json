@@ -5,7 +5,7 @@
 		"index": false,
 		"root": "demo"
 	},
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"service": {
 		"hostName": true,
 		"ipType": "IPv4",
@@ -39,7 +39,7 @@
 		"xml": "text/xml",
 		"woff":"font-face/woff"
 	},
-	"autoOpenBrowser": true,
+	"autoOpenBrowser": false,
 	"livereload": true
 
 
