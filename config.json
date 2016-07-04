@@ -39,7 +39,7 @@
 		"xml": "text/xml",
 		"woff":"font-face/woff"
 	},
-	"autoOpenBrowser": false,
+	"autoOpenBrowser": true,
 	"livereload": true
 
 
