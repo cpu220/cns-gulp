@@ -4,7 +4,7 @@
 
 const colors = [31,32,33,34,35,36];
 
-const message ={
+const msg ={
 	error:(text)=>{
 		console.log('\033[31m'+text+'\033[m');
 	},
@@ -22,4 +22,4 @@ const message ={
 	}
 };
 
-module.exports = message;
+module.exports = msg;

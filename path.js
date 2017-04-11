@@ -12,7 +12,7 @@ for(var i of fileArray){
 			encode:'utf8',
 			callback:function(err,file){
 				var indexText = file;
-				common.log.resest(`node_modules/${fileName}/index.js`,indexText);
+				common.log.reset(`node_modules/${fileName}/index.js`,indexText);
 				msg.info(`${fileName}已修正\n`);
 			}
 		});

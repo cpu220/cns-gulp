@@ -19,7 +19,7 @@ const common = {
 
             });
         },
-        resest: function (file, message, callback) {
+        reset: function (file, message, callback) {
             fs.writeFile(file, message, (err) => {
                 if (err) {
                     throw err;
@@ -50,13 +50,9 @@ const common = {
             });
         },
         readdirSync: function (path, callback) {
-            var fd = fs.readdirSync(path, (err, fd) => {
-                if (err) {
-                    throw err;
-                }
-            });
+            var file = fs.readdirSync(path);
             if (callback) {
-                callback(fd);
+                callback(file);
             }
         },
         // 获取指定目录下指定文件合集
@@ -67,26 +63,31 @@ const common = {
         // 获取指定目录下指定文件合集（内部调用方法）
         getFile: function (root, fileType, callback) {
             const _this = this;
+
+
             _this.readdirSync(root, (file) => {
-                console.log(file);
-                // file.forEach(file)=>{
-                // 	if(file.indexOf('.'+fileType)>0){
-                // 		_this.array.push(file);
-                // 	}else if(file.indexOf('.')<0){
-                // 		// 目录
-                // 		_this.getFile(root+'/'+file,fileType,(file)=>{
-                // 			_this.array.concat(file);
-                // 		});
-                // 	}
-                // }
+                file.forEach((file)=>{
+                    if(file.indexOf('.'+fileType)>0){
+                            _this.array.push(file);
+                    }else if(file.indexOf('.')<0){
+                        // 目录
+                        _this.getFile(root+'/'+file,fileType,(file)=>{
+                            _this.array.concat(file);
+                        });
+                    }
+                });
+
             });
+
+            callback(_this.array);
+
         },
         open: function (file, callback) {
             fs.open(file, 0666, (err, d) => {
                 if (err) {
                     throw err
                 }
-                ;
+
                 if (callback) {
                     callback(d);
                 }
@@ -189,6 +190,8 @@ const common = {
     }
 
 };
+
+
 
 common.package = jsonPackage;
 module.exports = common;
