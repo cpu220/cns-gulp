@@ -1,11 +1,11 @@
 {
 	"html": {
-		"indexHTML": "htdocs/happy/happy.html",
+		"indexHTML": "htdocs/index.html",
 		"rootHTML": "root.html",
 		"index": false,
 		"root": "demo"
 	},
-	"version": "1.2.0",
+	"version": "1.3.0",
 	"service": {
 		"hostName": true,
 		"ipType": "IPv4",
