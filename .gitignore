@@ -1,1 +1,5 @@
 node_modules
+log.txt
+demo/memoryLog.json
+demo/ip.json
+.idea

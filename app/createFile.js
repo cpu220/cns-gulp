@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const common = require('./common-cns.js');
+const common = require('../common-cns.js');
 const gulp = require('gulp');
 const replace = require('gulp-replace');
 const rename = require('gulp-rename');

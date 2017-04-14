@@ -1,4 +1,4 @@
-const common = require('./common-cns.js');
+const common = require('../common-cns.js');
 const msg = require('./colorMessage.js');
 const fileArray = [
 	'gulp-connect'

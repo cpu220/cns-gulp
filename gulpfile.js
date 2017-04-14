@@ -9,8 +9,8 @@ const url = require('url'),
 	$ = require('gulp-load-plugins');
 
 const config = require("./config.json");
-const cf = require('./createFile');
-
+// const cf = require('./app/createFile');
+const ios = require('./app/ios');
 
 const CNServer = {
 	opation: config,
@@ -35,19 +35,36 @@ const CNServer = {
 		});
 
 		gulp.task('watch', function () {
+			// var time=setInterval(function(){
+			//
+			// },500)
+			
 			gulp.watch([root], ['html']);
 		});
 		gulp.task('default', ['connect', 'watch']);
 
-		gulp.task('path',shell.task('node path'));
+		gulp.task('path',shell.task('node app/path'));
 	}
 };
 
 CNServer.init();
 
-gulp.task('cf',function(){
-	cf.init();
-})
+// gulp.task('cf',function(){
+// 	cf.init();
+// });
+
+gulp.task('b',shell.task([
+	'xcrun instruments -w "iphone"'
+]));
+
+gulp.task('ios',function(){
+	shell(['echo hello']);
+
+ // ios.getchoose(function(d){
+ // // shell.task('node xcrun instruments -w iphone');
+ // shell(['node app/test.js'])
+ // });
+});
 
 /*todo 以下代码为临时代码*/
 

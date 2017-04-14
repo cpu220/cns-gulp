@@ -1,0 +1,1 @@
+xcrun instruments -w 'iphone'

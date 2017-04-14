@@ -2,7 +2,7 @@
  * 通用方法合集
  */
 
-const msg = require('./colorMessage');
+const msg = require('./app/colorMessage');
 
 
 const fs = require('fs');
@@ -10,7 +10,7 @@ const fs = require('fs');
 const jsonPackage = require('./package.json');
 
 const common = {
-    log: {
+    log:    {
         set: function (file, message, opation) {
             fs.appendFile(file, message, (err) => {
                 if (err) {
