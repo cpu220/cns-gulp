@@ -11,9 +11,13 @@
   "publishConfig": {
     "registry": "http://registry.npm.alibaba-inc.com"
   },
+  "engines" : {
+     "node" : ">=4.4.4"
+  },
   "devDependencies": {
-    "gulp": "~3.9.1",
-    "gulp-connect": "*",
+    "gulp": "~3.9.0",
+    "gulp-connect": "~2.2.0",
+
     "gulp-livereload": "*",
     "gulp-replace":"*",
     "gulp-rename":"*",

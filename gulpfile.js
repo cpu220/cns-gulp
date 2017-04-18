@@ -10,7 +10,10 @@ const url = require('url'),
 
 const config = require("./config.json");
 // const cf = require('./app/createFile');
-const ios = require('./app/ios');
+// const ios = require('./app/ios');
+
+
+// console.log(io);
 
 const CNServer = {
 	opation: config,
@@ -27,7 +30,9 @@ const CNServer = {
 		});
 	},
 	onTask: function () {
-		var root = `/${ config.html.root}/**/*.*`;
+		var root = `./${ config.html.root}/**/*.*`;
+
+		// var root = "./" + config.html.root + "/**/*.*";
 
 		gulp.task('file', function () {
 			gulp.src(root)
@@ -35,11 +40,7 @@ const CNServer = {
 		});
 
 		gulp.task('watch', function () {
-			// var time=setInterval(function(){
-			//
-			// },500)
-			
-			gulp.watch([root], ['html']);
+			gulp.watch([root], ['file']);
 		});
 		gulp.task('default', ['connect', 'watch']);
 
@@ -49,22 +50,24 @@ const CNServer = {
 
 CNServer.init();
 
+// todo 文件创建
 // gulp.task('cf',function(){
 // 	cf.init();
 // });
 
-gulp.task('b',shell.task([
-	'xcrun instruments -w "iphone"'
-]));
-
-gulp.task('ios',function(){
-	shell(['echo hello']);
-
- // ios.getchoose(function(d){
- // // shell.task('node xcrun instruments -w iphone');
- // shell(['node app/test.js'])
- // });
-});
+/** todo 测试ios模拟器用 **/
+// gulp.task('b',shell.task([
+// 	'xcrun instruments -w "iphone"'
+// ]));
+//
+// gulp.task('ios',function(){
+// 	shell(['echo hello']);
+//
+//  // ios.getchoose(function(d){
+//  // // shell.task('node xcrun instruments -w iphone');
+//  // shell(['node app/test.js'])
+//  // });
+// });
 
 /*todo 以下代码为临时代码*/
 

@@ -42,7 +42,7 @@ require([
                 // this.resetChart([]);
                 var option = {
                     title: {
-                        text: '内存试试监测'
+                        text: '内存实时监测'
                     },
                     tooltip: {
                         trigger: 'axis',

@@ -3,3 +3,4 @@ log.txt
 demo/memoryLog.json
 demo/ip.json
 .idea
+.idea/*
