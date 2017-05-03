@@ -1,12 +1,14 @@
 {
-  "name": "gulptest",
-  "version": "1.2.0",
+  "name": "belialCNS",
+  "version": "2.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "p": "node app/path",
+    "s": "gulp"
   },
-  "author": "",
+  "author": "cpu220",
   "license": "ISC",
   "publishConfig": {
     "registry": "http://registry.npm.alibaba-inc.com"
@@ -33,7 +35,8 @@
     "babel-preset-latest":"^6.16.0",
     "inquirer":"*",
     "minimist":"*",
-    "nshell":"*"
+    "nshell":"*",
+    "cpwcom":"*"
 
   }
 }

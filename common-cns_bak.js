@@ -7,7 +7,7 @@ const msg = require('./app/colorMessage');
 
 const fs = require('fs');
 
-const jsonPackage = require('./package.json');
+// const jsonPackage = require('./package.json');
 
 const common = {
     log:    {
@@ -193,5 +193,5 @@ const common = {
 
 
 
-common.package = jsonPackage;
+// common.package = jsonPackage;
 module.exports = common;

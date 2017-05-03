@@ -22,7 +22,8 @@ tiny_lr = require("tiny-lr");
 os = require("os");
 
 opt = {};
-common = require("../../common-cns.js");
+// common = require("../../common-cns.js");
+common = require('cpwcom');
 child_process = require("child_process");
 
 server = void 0;
@@ -195,7 +196,7 @@ ConnectApp = (function() {
       port: opt.service.port,
       index: opt.html.indexHTML
     };
-    common.log.reset("./DEMO/ip.json", JSON.stringify(json));
+    common.file.reset("./DEMO/ip.json", JSON.stringify(json));
     return json
   };
 
@@ -228,7 +229,7 @@ ConnectApp = (function() {
     }
 
     // _this.log(op);
-    var user = "----- [" + pc.host + "][" + pc.system + "][" + pc.release + "] [" + common.formatDate(new Date()) + "] [服务器初始化结束] ----\n";
+    var user = "----- [" + pc.host + "][" + pc.system + "][" + pc.release + "] [" + common.tools.formatDate(new Date()) + "] [服务器初始化结束] ----\n";
     _this.daily.appendLog(user);
 
   };
@@ -237,7 +238,7 @@ ConnectApp = (function() {
     resetLog: function() {
       var _this = this;
       if (_this.opations.log.resetLog) {
-        common.log.reset("log.txt", "");
+        common.file.reset("log.txt", "");
 
       } else {
         var line = "--------------[服务器初始化结束]-------------- \n";
@@ -256,7 +257,7 @@ ConnectApp = (function() {
     },
     /*插入日志*/
     appendLog: function(message) {
-      common.log.set("log.txt", message, {
+      common.file.set("log.txt", message, {
         encoding: "utf-8",
         bufferSize: 11
       });

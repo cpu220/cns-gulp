@@ -18,8 +18,29 @@
 
     <title>h5-默认页面</title>
     <style>
+    .select{
+      border:none;
+      background:none;
+      width: 100%;
+      text-align: center;
+    }
+    .select option{
+      text-align: center;
+    }
+    .select-content{
+      display:flex;
+      width: 100%;
+      background: #e5e5e5;
 
+    }
 
+    .select-content .item-3{
+      flex-wrap: nowrap;
+      flex-grow:3;
+    }
+    ul,li{
+      list-style: none;
+    }
     </style>
 </head>
 
@@ -29,8 +50,26 @@
     <div class="swiper-container " >
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-              Slide 1
+              <div class="select-content">
+                  <div class="item-3">
+                    <select class="select">
+                      <option value="1">123123</option>
+                      <option value="1">3333</option>
+                    </select>
+                  </div>
+                  <div class="item-3">
+                    <select class="select">
+                      <option value="1">123123</option>
+                    </select>
+                  </div>
+                  <div class="item-3">
+                    <select class="select">
+                      <option value="1">123123</option>
+                    </select>
+                  </div>
+              </div>
             </div>
+
             <div class="swiper-slide">
               <form id="form1">
                 <table>

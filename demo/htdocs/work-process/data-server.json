@@ -1,0 +1,256 @@
+{
+  "version": "2.0",
+  "datas": [
+    {
+      "_className": "Q.Node",
+      "json": {
+        "name": "A"
+      },
+      "_refId": "171"
+    },
+    {
+      "_className": "Q.Node",
+      "json": {
+        "name": "B"
+      },
+      "_refId": "172"
+    },
+    {
+      "_className": "Q.Node",
+      "json": {
+        "name": "C"
+      },
+      "_refId": "173"
+    },
+    {
+      "_className": "Q.Node",
+      "json": {
+        "name": "D"
+      },
+      "_refId": "174"
+    },
+    {
+      "_className": "Q.Node",
+      "json": {
+        "name": "E"
+      },
+      "_refId": "175"
+    },
+    {
+      "_className": "Q.Node",
+      "json": {
+        "name": "F"
+      },
+      "_refId": "176"
+    },
+    {
+      "_className": "Q.Node",
+      "json": {
+        "name": "G"
+      },
+      "_refId": "177"
+    },
+    {
+      "_className": "Q.Node",
+      "json": {
+        "name": "H"
+      },
+      "_refId": "178"
+    },
+    {
+      "_className": "Q.Node",
+      "json": {
+        "name": "I"
+      },
+      "_refId": "179"
+    },
+    {
+      "_className": "Q.Node",
+      "json": {
+        "name": "J"
+      },
+      "_refId": "180"
+    }
+  ],
+  "edges": [
+    {
+      "_className": "Q.Edge",
+      "json": {
+        "from": {
+          "_ref": 171
+        },
+        "to": {
+          "_ref": 172
+        }
+      }
+    },
+    {
+      "_className": "Q.Edge",
+      "json": {
+        "from": {
+          "_ref": 171
+        },
+        "to": {
+          "_ref": 173
+        }
+      }
+    },
+    {
+      "_className": "Q.Edge",
+      "json": {
+        "from": {
+          "_ref": 171
+        },
+        "to": {
+          "_ref": 179
+        }
+      }
+    },
+    {
+      "_className": "Q.Edge",
+      "json": {
+        "from": {
+          "_ref": 171
+        },
+        "to": {
+          "_ref": 178
+        }
+      }
+    },
+    {
+      "_className": "Q.Edge",
+      "json": {
+        "from": {
+          "_ref": 179
+        },
+        "to": {
+          "_ref": 178
+        }
+      }
+    },
+    {
+      "_className": "Q.Edge",
+      "json": {
+        "from": {
+          "_ref": 171
+        },
+        "to": {
+          "_ref": 174
+        }
+      }
+    },
+    {
+      "_className": "Q.Edge",
+      "json": {
+        "from": {
+          "_ref": 172
+        },
+        "to": {
+          "_ref": 175
+        }
+      }
+    },
+    {
+      "_className": "Q.Edge",
+      "json": {
+        "from": {
+          "_ref": 180
+        },
+        "to": {
+          "_ref": 172
+        }
+      }
+    },
+    {
+      "_className": "Q.Edge",
+      "json": {
+        "from": {
+          "_ref": 172
+        },
+        "to": {
+          "_ref": 176
+        }
+      }
+    },
+    {
+      "_className": "Q.Edge",
+      "json": {
+        "from": {
+          "_ref": 172
+        },
+        "to": {
+          "_ref": 177
+        }
+      }
+    },
+    {
+      "_className": "Q.Edge",
+      "json": {
+        "from": {
+          "_ref": 173
+        },
+        "to": {
+          "_ref": 175
+        }
+      }
+    },
+    {
+      "_className": "Q.Edge",
+      "json": {
+        "from": {
+          "_ref": 173
+        },
+        "to": {
+          "_ref": 176
+        }
+      }
+    },
+    {
+      "_className": "Q.Edge",
+      "json": {
+        "from": {
+          "_ref": 173
+        },
+        "to": {
+          "_ref": 177
+        }
+      }
+    },
+    {
+      "_className": "Q.Edge",
+      "json": {
+        "from": {
+          "_ref": 174
+        },
+        "to": {
+          "_ref": 175
+        }
+      }
+    },
+    {
+      "_className": "Q.Edge",
+      "json": {
+        "from": {
+          "_ref": 174
+        },
+        "to": {
+          "_ref": 176
+        }
+      }
+    },
+    {
+      "_className": "Q.Edge",
+      "json": {
+        "from": {
+          "_ref": 174
+        },
+        "to": {
+          "_ref": 177
+        }
+      }
+    }
+  ],
+  "scale": 1,
+  "tx": 855,
+  "ty": 194.8
+}

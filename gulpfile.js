@@ -56,9 +56,9 @@ CNServer.init();
 // });
 
 /** todo 测试ios模拟器用 **/
-// gulp.task('b',shell.task([
-// 	'xcrun instruments -w "iphone"'
-// ]));
+gulp.task('b',shell.task([
+	'xcrun instruments -w "iphone"'
+]));
 //
 // gulp.task('ios',function(){
 // 	shell(['echo hello']);

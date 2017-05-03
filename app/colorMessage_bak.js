@@ -2,7 +2,7 @@
  * 日志种类封装
  */
 
-const colors = [31, 32, 33, 34, 35, 36];
+// const colors = [31, 32, 33, 34, 35, 36];
 
 const msg = {
     error: (text) => {
