@@ -40,7 +40,8 @@
 		"woff":"font-face/woff"
 	},
 	"autoOpenBrowser": true,
-	"livereload": true
+	"livereload": true,
+	"memoryListen":true
 
 
 }

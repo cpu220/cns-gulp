@@ -1,5 +1,5 @@
 const process = require('process');
-const common = require('../common-cns.js');
+const common = require('cpwcom');
 
 const action = {
     init: function() {
@@ -11,7 +11,7 @@ const action = {
         let timer = setInterval(function() {
 
             p = process.memoryUsage();
-            p.time = common.formatDate(new Date());
+            p.time = common.tools.formatDate(new Date());
             arr.push(p);
             i++;
             if (i > 100) {
@@ -28,4 +28,5 @@ const action = {
 
     }
 };
-action.init();
+module.exports = action;
+// action.init();

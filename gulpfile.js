@@ -8,12 +8,12 @@ const url = require('url'),
 	less = require('gulp-less'),
 	$ = require('gulp-load-plugins');
 
-const config = require("./config.json");
+const config = require("./config.json");// 配置项
+const memory = require("./app/memory"); // 内存监测
+
 // const cf = require('./app/createFile');
 // const ios = require('./app/ios');
 
-
-// console.log(io);
 
 const CNServer = {
 	opation: config,
@@ -27,20 +27,21 @@ const CNServer = {
 		const _this = this;
 		gulp.task('connect',  (req, res) =>{
 			connect.server(_this.opation);
+			if(config.memoryListen){
+				memory.init();
+			}
 		});
 	},
 	onTask: function () {
 		var root = `./${ config.html.root}/**/*.*`;
-
-		// var root = "./" + config.html.root + "/**/*.*";
-
+		
 		gulp.task('file', function () {
 			gulp.src(root)
 				.pipe(connect.reload());
 		});
 
 		gulp.task('watch', function () {
-			gulp.watch([root], ['file']);
+			gulp.watch([root+'/htdocs'], ['file']);
 		});
 		gulp.task('default', ['connect', 'watch']);
 

@@ -94,7 +94,7 @@ require([
                 };
                 myChart.setOption(option);
                 var timer = setInterval(function(){
-                    _this.doAjax('memoryLog');
+                    _this.doAjax('../memoryLog');
                 },1000);
                 // setTimeout(function(){
                 //
