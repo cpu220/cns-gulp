@@ -14,6 +14,9 @@ const memory = require("./app/memory"); // 内存监测
 // const cf = require('./app/createFile');
 // const ios = require('./app/ios');
 
+const getFile = require('./app/getFile');
+
+
 
 const CNServer = {
 	opation: config,
@@ -34,7 +37,7 @@ const CNServer = {
 	},
 	onTask: function () {
 		var root = `./${ config.html.root}/**/*.*`;
-		
+
 		gulp.task('file', function () {
 			gulp.src(root)
 				.pipe(connect.reload());
@@ -56,19 +59,6 @@ CNServer.init();
 // 	cf.init();
 // });
 
-/** todo 测试ios模拟器用 **/
-gulp.task('b',shell.task([
-	'xcrun instruments -w "iphone"'
-]));
-//
-// gulp.task('ios',function(){
-// 	shell(['echo hello']);
-//
-//  // ios.getchoose(function(d){
-//  // // shell.task('node xcrun instruments -w iphone');
-//  // shell(['node app/test.js'])
-//  // });
-// });
 
 /*todo 以下代码为临时代码*/
 
@@ -88,15 +78,12 @@ gulp.task('build',['less','es6'],function(){
 
 
 
-var knownOptions ={
-	string :'env',
-	default :{
-		env:process.env.NODE_ENV ||'test'
-	}
-};
+gulp.task('b',function(){
+	const A = new getFile('demo','html');
 
-var options = minimist(process.argv.slice(2),knownOptions);
-
-gulp.task('a',function(){
-	console.log(options.env);
+	A.getResult({
+	  callback: function(arr){
+	    console.log(arr)
+	  }
+	});
 });

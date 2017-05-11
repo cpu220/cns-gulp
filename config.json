@@ -41,7 +41,7 @@
 	},
 	"autoOpenBrowser": true,
 	"livereload": true,
-	"memoryListen":true
+	"memoryListen":false
 
 
 }
